@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Thirumala Reddy — Software Developer</title>
+<meta name="description" content="Thirumala Reddy Basi Reddy — B.Tech student at Sai University, School of Computing & Data Science. Interactive 3D developer portfolio." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="css/style.css" />
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar" class="navbar glass">
+  <button class="brand" data-goto="home">Thirumala<span class="accent">.</span></button>
+  <ul class="nav-links" id="navLinks">
+    <li><button data-goto="home">Home</button></li>
+    <li><button data-goto="about">About</button></li>
+    <li><button data-goto="education">Education</button></li>
+    <li><button data-goto="skills">Skills</button></li>
+    <li><button data-goto="projects">Projects</button></li>
+    <li><button data-goto="dsa">DSA</button></li>
+    <li><button data-goto="achievements">Achievements</button></li>
+    <li><button data-goto="resume">Resume</button></li>
+    <li><button data-goto="contact">Contact</button></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">≡</button>
+</nav>
+<div class="nav-mobile glass" id="navMobile"></div>
+
+<!-- HERO / 3D SCENE -->
+<section id="home" class="hero bg-node-grid">
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <p class="eyebrow reveal">// interactive developer portfolio</p>
+    <h1 class="hero-title reveal">Hi, I'm <span class="text-gradient">Thirumala Reddy</span></h1>
+    <p class="hero-typed reveal"><span id="typed"></span><span class="cursor">▍</span></p>
+    <p class="hero-tagline reveal">I am a B.Tech student passionate about software development, problem solving, full-stack web development, data structures and algorithms, and emerging technologies.</p>
+    <div class="hero-actions reveal">
+      <button class="btn btn-primary" data-goto="projects">View My Projects</button>
+      <button class="btn btn-glass" data-goto="contact">Contact Me</button>
+      <button class="btn btn-outline" id="resumeBtn" disabled title="Add your resume file in js/data.js">Download Resume</button>
+    </div>
+    <p class="hero-hint">drag to rotate · scroll to zoom · tap a node to open a section</p>
+  </div>
+  <div class="scene-wrap">
+    <canvas id="scene-canvas"></canvas>
+    <div id="sceneFallback" class="scene-fallback" hidden>
+      <p class="eyebrow">3D preview unavailable on this device</p>
+      <div class="fallback-grid" id="fallbackGrid"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <p class="eyebrow">01 / About</p>
+      <h2 class="section-title">About Me</h2>
+    </div>
+    <div class="about-grid">
+      <div class="glass card reveal">
+        <p class="about-lead">I'm <span class="accent">Thirumala Reddy Basi Reddy</span>, currently a B.Tech Student at Sai University, in the School of Computing &amp; Data Science. I enjoy building software, reasoning through problems with data structures and algorithms, and steadily growing into a full-stack developer.</p>
+        <p class="about-sub">My current focus is strengthening core computer science fundamentals — DSA in C and C++ — while picking up full-stack web development and exploring AI and machine learning. I care about writing code that's clear, correct, and well-reasoned rather than just working.</p>
+      </div>
+      <div class="glass card reveal">
+        <p class="label-mono">interests[]</p>
+        <ul class="interest-list" id="interestList"></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="section">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <p class="eyebrow">02 / Education</p>
+      <h2 class="section-title">Education Timeline</h2>
+    </div>
+    <div class="timeline" id="timeline"></div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="section">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <p class="eyebrow">03 / Skills</p>
+      <h2 class="section-title">Technical Skills</h2>
+    </div>
+    <div class="skills-grid" id="skillsGrid"></div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <p class="eyebrow">04 / Projects</p>
+      <h2 class="section-title">Projects</h2>
+    </div>
+    <div id="projectsArea"></div>
+  </div>
+</section>
+
+<!-- DSA -->
+<section id="dsa" class="section">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <p class="eyebrow">05 / DSA &amp; Coding</p>
+      <h2 class="section-title">DSA / Coding Journey</h2>
+    </div>
+    <div class="dsa-grid">
+      <div>
+        <div class="dsa-topics" id="dsaTopics"></div>
+        <p class="dsa-note">Working through core data structures and algorithms in C and C++ — building intuition for complexity, recursion, and tree-based structures alongside consistent problem-solving practice.</p>
+      </div>
+      <div class="glass card dsa-links reveal">
+        <p class="label-mono">coding profiles</p>
+        <a href="https://github.com/ThirumalaReddy4" target="_blank" rel="noreferrer" class="pill-link">GitHub →</a>
+        <span class="pill-link disabled">[ADD LEETCODE]</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="section">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <p class="eyebrow">06 / Experience</p>
+      <h2 class="section-title">Experience</h2>
+    </div>
+    <div class="glass card reveal" style="max-width:640px">
+      <p class="about-lead">Currently building experience through academic projects, personal projects, coding practice, and continuous software development learning.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements" class="section">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <p class="eyebrow">07 / Achievements</p>
+      <h2 class="section-title">Achievements</h2>
+    </div>
+    <div class="achievements-grid" id="achievementsGrid"></div>
+    <p class="dsa-note">add future achievements in <code>js/data.js</code> → <code>achievements[]</code></p>
+  </div>
+</section>
+
+<!-- LEARNING -->
+<section id="learning" class="section">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <p class="eyebrow">08 / Roadmap</p>
+      <h2 class="section-title">Currently Learning</h2>
+    </div>
+    <div class="learning-grid" id="learningGrid"></div>
+  </div>
+</section>
+
+<!-- RESUME -->
+<section id="resume" class="section">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <p class="eyebrow">09 / Resume</p>
+      <h2 class="section-title">Resume</h2>
+    </div>
+    <div class="glass card resume-card reveal">
+      <div class="resume-preview">
+        <div class="resume-avatar"></div>
+        <div class="resume-line w75"></div>
+        <div class="resume-line w66"></div>
+        <div class="resume-divider"></div>
+        <div class="resume-line thin w83"></div>
+        <div class="resume-line thin w66"></div>
+        <div class="resume-line thin w83"></div>
+      </div>
+      <p class="resume-name">Thirumala Reddy Basi Reddy — Resume</p>
+      <div class="hero-actions" style="margin-top:1rem;">
+        <a class="btn btn-primary" href="assets/resume.pdf" target="_blank" rel="noreferrer">View Resume</a>
+        <a class="btn btn-glass" href="assets/resume.pdf" download="Thirumala_Reddy_Resume.pdf">Download PDF</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <p class="eyebrow">10 / Contact</p>
+      <h2 class="section-title">Get In Touch</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="glass card reveal">
+        <div id="contactRows"></div>
+        <div class="social-row" id="socialRow"></div>
+      </div>
+      <form class="glass card contact-form reveal" id="contactForm">
+        <input required placeholder="Name" name="name" />
+        <input required type="email" placeholder="Email" name="email" />
+        <input required placeholder="Subject" name="subject" />
+        <textarea required rows="4" placeholder="Message" name="message"></textarea>
+        <button type="submit" class="btn btn-primary" id="sendBtn">Send Message</button>
+        <p class="form-note" id="formNote" hidden>Connect a form backend (e.g. Formspree/EmailJS) in js/main.js to actually deliver this.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>© <span id="year"></span> Thirumala Reddy Basi Reddy. Built with HTML, CSS, JavaScript &amp; Three.js.</p>
+  <p><a href="../index.html" style="color:inherit;">← Back to Practical Programs Home</a></p>
+</footer>
+
+<script type="module" src="js/data.js"></script>
+<script type="module" src="js/scene.js"></script>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
