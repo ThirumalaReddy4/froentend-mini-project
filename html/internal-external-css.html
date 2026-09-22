@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Internal & External CSS | Practical Programs</title>
+<style>
+
+    .internal-demo { color: var(--accent-2); border: 2px dashed var(--accent); padding: 14px; border-radius: 10px; }
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to HTML Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Internal & External CSS</h1>
+  <p class="subtitle">Demonstrates styling using an internal &lt;style&gt; block plus the shared external stylesheet.</p>
+  <div class="program-box">
+
+    <p>This whole site already uses an <strong>external</strong> stylesheet (<code>assets/style.css</code>).</p>
+    <div class="internal-demo">This box is styled by an <strong>internal</strong> &lt;style&gt; block defined inside this page's &lt;head&gt;.</div>
+    <p style="margin-top:14px;">This sentence uses <strong>inline</strong> CSS: <span style="color:orange;font-weight:bold;">orange bold text</span>.</p>
+
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to HTML Programs</a>
+  </footer>
+</main>
+<script>
+
+</script>
+</body>
+</html>
