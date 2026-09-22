@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS-only Button Hover Animation | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.w .b{padding:12px 26px;border:2px solid #c0392b;background:transparent;color:#c0392b;font-size:1rem;border-radius:8px;cursor:pointer;transition:.3s;position:relative;overflow:hidden;z-index:0}
+.w .b1::before{content:'';position:absolute;inset:0;background:#c0392b;transform:translateX(-101%);transition:transform .35s;z-index:-1}
+.w .b1:hover::before{transform:translateX(0)}.w .b1:hover{color:#fff}
+.w .b2:hover{transform:scale(1.15);background:#ff6b6b;color:#fff}
+.w .b3:hover{box-shadow:0 0 18px 4px #ff6b6b;background:#ffe3e3}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to CSS Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">CSS-only Button Hover Animation</h1>
+  <p class="subtitle">Sliding fill, grow and glow effects on hover.</p>
+  <div class="program-box">
+<div class="w"><button class="b b1">Slide fill</button> <button class="b b2">Grow</button> <button class="b b3">Glow</button></div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to CSS Programs</a>
+  </footer>
+</main>
+<script>
+
+</script>
+</body>
+</html>

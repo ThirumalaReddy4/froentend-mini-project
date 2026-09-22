@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Webpage with a Fixed Sidebar | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.w .sb{list-style:none;margin:0;padding:10px;background:#4a1010;border-radius:8px}.w .sb a{color:#fff;text-decoration:none;display:block;padding:8px}
+.w .sp{height:300px;background:repeating-linear-gradient(#fff0f0,#fff0f0 20px,#ffe3e3 20px,#ffe3e3 40px)}
+@media(min-width:900px){.w .sb{position:fixed;top:110px;left:12px;width:150px;z-index:20}.w .ctn{margin-left:0}}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to CSS Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Webpage with a Fixed Sidebar</h1>
+  <p class="subtitle">A sidebar that stays fixed while the page scrolls (wide screens).</p>
+  <div class="program-box">
+<div class="w"><div class="fx"><ul class="sb"><li><a href="#s1">Section 1</a></li><li><a href="#s2">Section 2</a></li><li><a href="#s3">Section 3</a></li></ul><div class="ctn"><h3 id="s1">Section 1</h3><p>Scroll the page &ndash; the sidebar stays in place.</p><div class="sp"></div><h3 id="s2">Section 2</h3><div class="sp"></div><h3 id="s3">Section 3</h3><div class="sp"></div></div></div></div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to CSS Programs</a>
+  </footer>
+</main>
+<script>
+
+</script>
+</body>
+</html>

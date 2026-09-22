@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Page with CSS Media Queries | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.w .bp{padding:14px;border-radius:10px;background:#ffe3e3;}
+.w .cols{display:grid;grid-template-columns:1fr;gap:10px;}.w .cols div{background:#ff6b6b;color:#fff;padding:20px;text-align:center;border-radius:8px;}
+.w .label::before{content:'Mobile: below 600px (1 column)';font-weight:bold;}
+@media(min-width:600px){.w .bp{background:#d5f5e3}.w .cols{grid-template-columns:1fr 1fr}.w .label::before{content:'Tablet: 600px+ (2 columns)'}}
+@media(min-width:900px){.w .bp{background:#fdebd0}.w .cols{grid-template-columns:repeat(3,1fr)}.w .label::before{content:'Desktop: 900px+ (3 columns)'}}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to CSS Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Responsive Page with CSS Media Queries</h1>
+  <p class="subtitle">Resize the window: colour and layout change at breakpoints.</p>
+  <div class="program-box">
+<div class="w"><div class="bp"><p class="label"></p><div class="cols"><div>One</div><div>Two</div><div>Three</div></div></div></div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to CSS Programs</a>
+  </footer>
+</main>
+<script>
+
+</script>
+</body>
+</html>

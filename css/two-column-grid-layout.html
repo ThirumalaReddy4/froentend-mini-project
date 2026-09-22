@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Two-Column Layout using CSS Grid | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.w .tc{display:grid;grid-template-columns:2fr 1fr;gap:16px}.w article{background:#ffe3e3;padding:14px;border-radius:8px}.w aside{background:#fff3cd;padding:14px;border-radius:8px}
+@media(max-width:600px){.w .tc{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to CSS Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Two-Column Layout using CSS Grid</h1>
+  <p class="subtitle">Main content plus sidebar that stacks on small screens.</p>
+  <div class="program-box">
+<div class="w"><div class="tc"><article><h3>Main Article</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p></article><aside><h3>Sidebar</h3><p>Links, ads or related posts.</p></aside></div></div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to CSS Programs</a>
+  </footer>
+</main>
+<script>
+
+</script>
+</body>
+</html>

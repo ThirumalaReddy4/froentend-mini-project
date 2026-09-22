@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Tooltip | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.w .tip{position:relative;border-bottom:2px dotted #c0392b;cursor:help}
+.w .tip::after{content:attr(data-tip);position:absolute;bottom:130%;left:50%;transform:translateX(-50%);background:#4a1010;color:#fff;padding:6px 10px;border-radius:6px;white-space:nowrap;font-size:.8rem;opacity:0;pointer-events:none;transition:.25s}
+.w .tip::before{content:'';position:absolute;bottom:110%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:#4a1010;opacity:0;transition:.25s}
+.w .tip:hover::after,.w .tip:hover::before{opacity:1}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to CSS Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">CSS Tooltip</h1>
+  <p class="subtitle">Tooltip shown on hover using data-tip and ::after.</p>
+  <div class="program-box">
+<div class="w"><p>Hover over the <span class="tip" data-tip="I am a tooltip!">highlighted word</span> or the <button class="tip btn" data-tip="Button tooltip">button</button>.</p></div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to CSS Programs</a>
+  </footer>
+</main>
+<script>
+
+</script>
+</body>
+</html>

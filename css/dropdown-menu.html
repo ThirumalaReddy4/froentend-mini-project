@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dropdown Menu | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+.dropdown{position:relative;display:inline-block;}
+.dropdown-content{display:none;position:absolute;background:var(--bg-soft);border:1px solid var(--border);border-radius:8px;min-width:160px;overflow:hidden;}
+.dropdown-content a{display:block;padding:10px 14px;color:var(--text);text-decoration:none;}
+.dropdown-content a:hover{background:var(--accent);}
+.dropdown:hover .dropdown-content{display:block;}
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to CSS Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Dropdown Menu</h1>
+  <p class="subtitle">A pure-CSS dropdown menu revealed on hover.</p>
+  <div class="program-box">
+<div class="dropdown"><button class="btn">Hover Me</button><div class="dropdown-content"><a href="#">Option 1</a><a href="#">Option 2</a><a href="#">Option 3</a></div></div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to CSS Programs</a>
+  </footer>
+</main>
+<script>
+
+</script>
+</body>
+</html>

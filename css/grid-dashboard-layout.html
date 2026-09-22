@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard Layout using CSS Grid | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.w .db{display:grid;grid-template-columns:130px repeat(3,1fr);grid-template-rows:50px auto 160px;gap:10px}
+.w .db>div{padding:12px;border-radius:8px;color:#fff}.w .hd{grid-column:1/-1;background:#4a1010;line-height:26px}.w .sd{grid-row:2/4;background:#c0392b}
+.w .t{background:#ff6b6b}.w .t b{display:block;font-size:1.6rem}.w .ct{grid-column:2/-1;background:#ffb3b3;color:#4a1010}
+@media(max-width:600px){.w .db{grid-template-columns:1fr 1fr}.w .sd{grid-row:auto;grid-column:1/-1}.w .ct{grid-column:1/-1}}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to CSS Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Dashboard Layout using CSS Grid</h1>
+  <p class="subtitle">Sidebar, header, stat tiles and content in a grid.</p>
+  <div class="program-box">
+<div class="w"><div class="db"><div class="hd">Dashboard</div><div class="sd">Menu<br>Home<br>Reports<br>Users</div>
+<div class="t">Users<b>1,240</b></div><div class="t">Sales<b>&#8377;54k</b></div><div class="t">Orders<b>320</b></div><div class="ct">Main content / chart area</div></div></div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to CSS Programs</a>
+  </footer>
+</main>
+<script>
+
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>object-fit and object-position | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.w .row{display:flex;flex-wrap:wrap;gap:12px}.w figure{margin:0;text-align:center}.w img{width:150px;height:150px;border:2px solid #4a1010;background:#eee}
+.w .a{object-fit:fill}.w .b{object-fit:contain}.w .c{object-fit:cover}.w .d{object-fit:cover;object-position:left center}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to CSS Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">object-fit and object-position</h1>
+  <p class="subtitle">How an image fills a fixed-size box: fill, contain, cover, and object-position.</p>
+  <div class="program-box">
+<div class="w"><div class="row"><figure><img class="a" src="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%27600%27%20height%3D%27200%27%3E%3Cdefs%3E%3ClinearGradient%20id%3D%27g%27%20x1%3D%270%27%20y1%3D%270%27%20x2%3D%271%27%20y2%3D%271%27%3E%3Cstop%20offset%3D%270%27%20stop-color%3D%27%232980b9%27/%3E%3Cstop%20offset%3D%271%27%20stop-color%3D%27%23e74c3c%27/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%27100%25%27%20height%3D%27100%25%27%20fill%3D%27url%28%23g%29%27/%3E%3Ctext%20x%3D%2750%25%27%20y%3D%2752%25%27%20font-family%3D%27Arial%27%20font-size%3D%2734%27%20fill%3D%27white%27%20text-anchor%3D%27middle%27%3EWide%20image%3C/text%3E%3C/svg%3E"><figcaption>fill (stretched)</figcaption></figure><figure><img class="b" src="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%27600%27%20height%3D%27200%27%3E%3Cdefs%3E%3ClinearGradient%20id%3D%27g%27%20x1%3D%270%27%20y1%3D%270%27%20x2%3D%271%27%20y2%3D%271%27%3E%3Cstop%20offset%3D%270%27%20stop-color%3D%27%232980b9%27/%3E%3Cstop%20offset%3D%271%27%20stop-color%3D%27%23e74c3c%27/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%27100%25%27%20height%3D%27100%25%27%20fill%3D%27url%28%23g%29%27/%3E%3Ctext%20x%3D%2750%25%27%20y%3D%2752%25%27%20font-family%3D%27Arial%27%20font-size%3D%2734%27%20fill%3D%27white%27%20text-anchor%3D%27middle%27%3EWide%20image%3C/text%3E%3C/svg%3E"><figcaption>contain</figcaption></figure><figure><img class="c" src="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%27600%27%20height%3D%27200%27%3E%3Cdefs%3E%3ClinearGradient%20id%3D%27g%27%20x1%3D%270%27%20y1%3D%270%27%20x2%3D%271%27%20y2%3D%271%27%3E%3Cstop%20offset%3D%270%27%20stop-color%3D%27%232980b9%27/%3E%3Cstop%20offset%3D%271%27%20stop-color%3D%27%23e74c3c%27/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%27100%25%27%20height%3D%27100%25%27%20fill%3D%27url%28%23g%29%27/%3E%3Ctext%20x%3D%2750%25%27%20y%3D%2752%25%27%20font-family%3D%27Arial%27%20font-size%3D%2734%27%20fill%3D%27white%27%20text-anchor%3D%27middle%27%3EWide%20image%3C/text%3E%3C/svg%3E"><figcaption>cover</figcaption></figure><figure><img class="d" src="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%27600%27%20height%3D%27200%27%3E%3Cdefs%3E%3ClinearGradient%20id%3D%27g%27%20x1%3D%270%27%20y1%3D%270%27%20x2%3D%271%27%20y2%3D%271%27%3E%3Cstop%20offset%3D%270%27%20stop-color%3D%27%232980b9%27/%3E%3Cstop%20offset%3D%271%27%20stop-color%3D%27%23e74c3c%27/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%27100%25%27%20height%3D%27100%25%27%20fill%3D%27url%28%23g%29%27/%3E%3Ctext%20x%3D%2750%25%27%20y%3D%2752%25%27%20font-family%3D%27Arial%27%20font-size%3D%2734%27%20fill%3D%27white%27%20text-anchor%3D%27middle%27%3EWide%20image%3C/text%3E%3C/svg%3E"><figcaption>cover + position left</figcaption></figure></div></div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to CSS Programs</a>
+  </footer>
+</main>
+<script>
+
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Navigation Menu | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.w .rn{background:#c0392b;color:#fff;padding:10px 16px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;border-radius:8px;}
+.w .rn a{color:#fff;text-decoration:none;padding:8px 12px;display:block;}.w .rn a:hover{background:rgba(255,255,255,.2);border-radius:6px;}
+.w .links{list-style:none;margin:0;padding:0;display:flex;}.w #tg,.w .burger{display:none;}
+@media(max-width:700px){.w .burger{display:block;cursor:pointer;font-size:26px}.w .links{display:none;flex-direction:column;width:100%}.w #tg:checked~.links{display:flex}}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to CSS Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Responsive Navigation Menu</h1>
+  <p class="subtitle">Menu collapses into a hamburger toggle on small screens (pure HTML + CSS checkbox).</p>
+  <div class="program-box">
+<div class="w"><div class="rn"><span class="logo">MyBrand</span><input type="checkbox" id="tg"><label for="tg" class="burger">&#9776;</label>
+<ul class="links"><li><a href="#">Home</a></li><li><a href="#">About</a></li><li><a href="#">Services</a></li><li><a href="#">Contact</a></li></ul></div>
+<p>Make the window narrower than 700px and use the &#9776; button.</p></div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to CSS Programs</a>
+  </footer>
+</main>
+<script>
+
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Combinator Selectors | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.w .box p{border-left:4px solid #ff6b6b;padding-left:8px}
+.w .box>p{background:#ffe3e3}
+.w h4+p{background:#fff3cd;font-weight:bold}
+.w h4~p{color:#c0392b}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to CSS Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Combinator Selectors</h1>
+  <p class="subtitle">Descendant, child (>), adjacent sibling (+) and general sibling (~) selectors.</p>
+  <div class="program-box">
+<div class="w"><div class="box"><p>Direct child p (child &gt;)</p><section><p>Nested p (descendant only)</p></section><h4>Heading</h4>
+<p>p right after h4 (adjacent +)</p><p>Later sibling p (general ~)</p></div></div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to CSS Programs</a>
+  </footer>
+</main>
+<script>
+
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flexbox Alignment and Ordering | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.w .fb{display:flex;background:#ffe3e3;padding:8px;gap:8px;border-radius:8px}.w .fb>div{background:#c0392b;color:#fff;padding:14px 20px;border-radius:6px}
+.w .a{justify-content:space-between;align-items:center;height:120px}.w .tall{padding:34px 20px}.w .b{flex-direction:row-reverse;justify-content:flex-end}.w .c{justify-content:center}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to CSS Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Flexbox Alignment and Ordering</h1>
+  <p class="subtitle">justify-content, align-items, order and flex-direction.</p>
+  <div class="program-box">
+<div class="w"><h4>justify-content: space-between; align-items: center</h4><div class="fb a"><div>1</div><div class="tall">2</div><div>3</div></div>
+<h4>flex-direction: row-reverse; justify-content:flex-end</h4><div class="fb b"><div>1</div><div>2</div><div>3</div></div>
+<h4>order property: 3, 1, 2 becomes 1, 2, 3 visually</h4><div class="fb c"><div style="order:3">A (order 3)</div><div style="order:1">B (order 1)</div><div style="order:2">C (order 2)</div></div></div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to CSS Programs</a>
+  </footer>
+</main>
+<script>
+
+</script>
+</body>
+</html>

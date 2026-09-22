@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Overflow Properties | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.w .r{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:22px}
+.w .ov{height:70px;border:2px solid #c0392b;padding:6px;background:#ffe3e3;font-size:.9rem}
+.w .v{overflow:visible}.w .h{overflow:hidden}.w .s{overflow:scroll}.w .a{overflow:auto}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to CSS Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Overflow Properties</h1>
+  <p class="subtitle">visible, hidden, scroll and auto.</p>
+  <div class="program-box">
+<div class="w"><div class="r"><div class="ov v">visible: text spills out of the box and is still shown outside its border.</div><div class="ov h">hidden: extra text is clipped and cannot be seen at all.</div>
+<div class="ov s">scroll: always shows scrollbars so you can read more text inside.</div><div class="ov a">auto: scrollbar appears only when needed to read the extra text.</div></div></div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to CSS Programs</a>
+  </footer>
+</main>
+<script>
+
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>z-index and Stacking Order | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.w .st{position:relative;height:200px}.w .z{position:absolute;width:140px;height:110px;color:#fff;padding:10px;border-radius:8px;box-shadow:0 4px 10px rgba(0,0,0,.3)}
+.w .z1{background:#e74c3c;top:10px;left:10px;z-index:1}.w .z2{background:#3498db;top:40px;left:70px;z-index:3}.w .z3{background:#2ecc71;top:70px;left:130px;z-index:2}
+.w .z:hover{z-index:10}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to CSS Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">z-index and Stacking Order</h1>
+  <p class="subtitle">Higher z-index values stack above lower ones. Hover a box to raise it.</p>
+  <div class="program-box">
+<div class="w"><div class="st"><div class="z z1">z-index: 1</div><div class="z z2">z-index: 3</div><div class="z z3">z-index: 2</div></div></div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to CSS Programs</a>
+  </footer>
+</main>
+<script>
+
+</script>
+</body>
+</html>

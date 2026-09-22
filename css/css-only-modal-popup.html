@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS-only Modal / Popup | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.w .ov{position:fixed;inset:0;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:.3s;z-index:100}
+.w #m:checked~.ov{opacity:1;visibility:visible}.w .md{background:#fff;color:#4a1010;padding:24px;border-radius:12px;max-width:320px;transform:scale(.8);transition:.3s;text-align:center}
+.w #m:checked~.ov .md{transform:scale(1)}.w label.btn{cursor:pointer;display:inline-block}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to CSS Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">CSS-only Modal / Popup</h1>
+  <p class="subtitle">A modal opened and closed with the checkbox hack, no JavaScript.</p>
+  <div class="program-box">
+<div class="w"><label for="m" class="btn">Open modal</label><input type="checkbox" id="m" hidden><div class="ov"><div class="md"><h3>Hello!</h3><p>This modal uses only CSS.</p><label for="m" class="btn">Close</label></div></div></div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to CSS Programs</a>
+  </footer>
+</main>
+<script>
+
+</script>
+</body>
+</html>

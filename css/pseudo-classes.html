@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pseudo-classes | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+.pc-link:visited{color:#c48bff;}
+.pc-btn{padding:10px 20px;border-radius:8px;border:2px solid var(--accent-2);background:transparent;color:var(--text);cursor:pointer;}
+.pc-btn:hover{background:var(--accent-2);color:#04261f;}
+.pc-btn:active{transform:scale(0.95);}
+.pc-input:focus{outline:3px solid var(--accent);}
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to CSS Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Pseudo-classes</h1>
+  <p class="subtitle">:hover, :active, :focus, and :visited demonstrated interactively.</p>
+  <div class="program-box">
+<p><a class="pc-link" href="#">Hover, then click me (:visited changes my colour)</a></p><button class="pc-btn">Hover / Click Me</button><br><br><input class="pc-input" placeholder="Click to focus me">
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to CSS Programs</a>
+  </footer>
+</main>
+<script>
+
+</script>
+</body>
+</html>

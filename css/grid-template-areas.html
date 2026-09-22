@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Grid Template Areas | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.w .ga{display:grid;gap:8px;grid-template-areas:"h h h" "n m a" "f f f";grid-template-columns:100px 1fr 100px}.w .ga>div{padding:16px;color:#fff;border-radius:6px;text-align:center}
+.w .h{grid-area:h;background:#4a1010}.w .n{grid-area:n;background:#c0392b}.w .m{grid-area:m;background:#ff6b6b;min-height:100px}.w .a{grid-area:a;background:#8e44ad}.w .f{grid-area:f;background:#2c3e50}
+@media(max-width:560px){.w .ga{grid-template-areas:"h" "n" "m" "a" "f";grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to CSS Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">CSS Grid Template Areas</h1>
+  <p class="subtitle">Named areas make the layout readable; it is rearranged in a media query.</p>
+  <div class="program-box">
+<div class="w"><div class="ga"><div class="h">header</div><div class="n">nav</div><div class="m">main</div><div class="a">aside</div><div class="f">footer</div></div></div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to CSS Programs</a>
+  </footer>
+</main>
+<script>
+
+</script>
+</body>
+</html>

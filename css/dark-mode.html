@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dark Mode Toggle | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+.dm-wrap{--dm-bg:#1e2338;--dm-text:#eef0f8;background:var(--dm-bg);color:var(--dm-text);padding:24px;border-radius:12px;transition:0.3s;}
+.dm-wrap.light{--dm-bg:#f4f4f8;--dm-text:#111;}
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to CSS Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Dark Mode Toggle</h1>
+  <p class="subtitle">Switch between light and dark themes using CSS variables.</p>
+  <div class="program-box">
+<div class="dm-wrap" id="dmWrap"><p>This panel switches theme.</p><button class="btn" onclick="toggleDark()">Toggle Light / Dark</button></div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to CSS Programs</a>
+  </footer>
+</main>
+<script>
+function toggleDark(){document.getElementById('dmWrap').classList.toggle('light');}
+</script>
+</body>
+</html>

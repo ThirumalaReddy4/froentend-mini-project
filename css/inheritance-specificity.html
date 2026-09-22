@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Inheritance and Specificity | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.w .parent{color:#8e44ad;font-family:Georgia,serif;font-size:18px;border:2px solid #8e44ad;padding:10px}
+.w p{color:#4a1010}.w .c{color:#e67e22}.w #i{color:#c0392b}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to CSS Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">CSS Inheritance and Specificity</h1>
+  <p class="subtitle">Child elements inherit some properties; higher-specificity selectors win.</p>
+  <div class="program-box">
+<div class="w"><div class="parent">Parent text (color and font are inherited)<p>Child paragraph inherits colour and font.</p>
+<p class="c">Class rule beats element rule.</p><p class="c" id="i">ID rule beats class rule.</p><p class="c" style="color:green">Inline style beats ID (!important beats all).</p></div></div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to CSS Programs</a>
+  </footer>
+</main>
+<script>
+
+</script>
+</body>
+</html>

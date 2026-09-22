@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Custom Properties | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+:root{--theme-color:#7c5cff;}.var-box{background:var(--theme-color);padding:20px;border-radius:10px;color:#fff;transition:background 0.3s;}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to CSS Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">CSS Custom Properties</h1>
+  <p class="subtitle">Reusable CSS variables changed live with JavaScript.</p>
+  <div class="program-box">
+
+<div class="var-box" id="varBox">This box uses a CSS variable for its background.</div>
+<div style="margin-top:12px;">
+  <button class="btn" onclick="changeTheme('#35d0ba')">Teal</button>
+  <button class="btn" onclick="changeTheme('#ff7676')">Red</button>
+  <button class="btn" onclick="changeTheme('#e6b800')">Gold</button>
+</div>
+
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to CSS Programs</a>
+  </footer>
+</main>
+<script>
+
+function changeTheme(color){document.documentElement.style.setProperty('--theme-color', color);}
+
+</script>
+</body>
+</html>

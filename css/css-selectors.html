@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Selectors | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.w p{color:#4a1010;}
+.w .note{background:#ffe3e3;padding:6px;}
+.w #special{background:#ff6b6b;color:#fff;padding:6px;}
+.w h3,.w h4{color:#c0392b;}
+.w input[type="text"]{border:2px solid #c0392b;padding:6px;margin:4px;}
+.w input[type="email"]{border:2px dashed #c0392b;padding:6px;margin:4px;}
+.w li:last-child{font-weight:bold;color:#c0392b;}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to CSS Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">CSS Selectors</h1>
+  <p class="subtitle">Element, class, ID, attribute, grouping and pseudo-class selectors.</p>
+  <div class="program-box">
+<div class="w"><p>Plain paragraph (element selector).</p>
+<p class="note">Class selector paragraph.</p>
+<p id="special">ID selector paragraph.</p>
+<h3>Heading grouped</h3><h4>Heading grouped</h4>
+<input type="text" placeholder="attribute selector: type=text"><input type="email" placeholder="type=email">
+<ul><li>Item 1</li><li>Item 2</li><li>Item 3 (last-child)</li></ul></div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to CSS Programs</a>
+  </footer>
+</main>
+<script>
+
+</script>
+</body>
+</html>

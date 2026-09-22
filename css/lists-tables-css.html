@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Styling Lists and Tables | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+.cl-list{list-style:none;padding-left:0;}
+.cl-list li{padding:8px 0 8px 28px;border-bottom:1px solid var(--border);position:relative;}
+.cl-list li::before{content:"\2714";color:var(--accent-2);position:absolute;left:0;}
+.cl-table{width:100%;border-collapse:collapse;}
+.cl-table th{background:var(--accent);color:#fff;padding:10px;}
+.cl-table td{padding:10px;border-bottom:1px solid var(--border);}
+.cl-table tr:nth-child(even){background:var(--bg-soft);}
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to CSS Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Styling Lists and Tables</h1>
+  <p class="subtitle">Custom list markers and a fully styled table.</p>
+  <div class="program-box">
+
+<ul class="cl-list"><li>Checklist item one</li><li>Checklist item two</li><li>Checklist item three</li></ul>
+<table class="cl-table"><tr><th>Item</th><th>Qty</th></tr><tr><td>Pens</td><td>10</td></tr><tr><td>Books</td><td>5</td></tr><tr><td>Files</td><td>3</td></tr></table>
+
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to CSS Programs</a>
+  </footer>
+</main>
+<script>
+
+</script>
+</body>
+</html>

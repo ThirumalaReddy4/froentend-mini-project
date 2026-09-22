@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pseudo-elements | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+.pe-quote::before{content:"\201C";color:var(--accent-2);font-size:1.4em;}
+.pe-quote::after{content:"\201D";color:var(--accent-2);font-size:1.4em;}
+.pe-para::first-letter{font-size:2.2em;color:var(--accent);font-weight:bold;}
+.pe-para::first-line{color:var(--accent-2);}
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to CSS Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Pseudo-elements</h1>
+  <p class="subtitle">::before, ::after, ::first-letter, and ::first-line.</p>
+  <div class="program-box">
+<p class="pe-quote">Design is not just what it looks like, design is how it works.</p><p class="pe-para">This paragraph demonstrates first-letter and first-line styling. The very first line is coloured differently from the rest of the paragraph, which continues in the normal text colour after the first line wraps.</p>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to CSS Programs</a>
+  </footer>
+</main>
+<script>
+
+</script>
+</body>
+</html>

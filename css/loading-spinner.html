@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loading Spinner Animation | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.w .row{display:flex;gap:40px;align-items:center;flex-wrap:wrap;padding:20px}.w .sp{width:56px;height:56px;border:6px solid #ffe3e3;border-top-color:#c0392b;border-radius:50%;animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}.w .dots{display:flex;gap:8px}.w .dots i{width:16px;height:16px;background:#c0392b;border-radius:50%;animation:bn .8s infinite alternate}
+.w .dots i:nth-child(2){animation-delay:.2s}.w .dots i:nth-child(3){animation-delay:.4s}@keyframes bn{to{transform:translateY(-16px);opacity:.3}}
+.w .pb{width:200px;height:12px;background:#ffe3e3;border-radius:6px;overflow:hidden}.w .pb i{display:block;height:100%;width:40%;background:#c0392b;animation:ld 1.4s infinite}@keyframes ld{from{margin-left:-40%}to{margin-left:100%}}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to CSS Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Loading Spinner Animation</h1>
+  <p class="subtitle">Ring spinner, dots loader and progress bar using only CSS.</p>
+  <div class="program-box">
+<div class="w"><div class="row"><div class="sp"></div><div class="dots"><i></i><i></i><i></i></div><div class="pb"><i></i></div></div></div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to CSS Programs</a>
+  </footer>
+</main>
+<script>
+
+</script>
+</body>
+</html>
