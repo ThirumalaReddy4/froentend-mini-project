@@ -1,55 +1,69 @@
-# Thirumala Reddy Assignment 1
+# Thirumala Reddy — 3D Developer Portfolio (Plain HTML/CSS/JS)
 
-**Student Name:** Thirumala Reddy
-**Register Number:** 250200187
-**Class / Section:** Section 5
-**School:** School of Computing and Data Science
-**Subject:** Web Development / Internet Programming Lab
-**Assignment:** HTML, CSS & JavaScript Practical Programs Website
+No npm, no build step, no install. Pure HTML, CSS, and JavaScript, with Three.js
+loaded from a CDN. The 3D scene works the same way as the React version: drag to
+orbit, scroll to zoom, click a glowing node to jump to that section.
 
-## Total programs completed: 211
+## Run it
 
-- HTML Programs: 15
-- CSS Programs: 75
-- JavaScript Programs: 121
+Just open `index.html` in a modern browser (Chrome, Edge, Firefox, Safari).
 
-## How to run
+**Note:** because this uses JavaScript modules (`<script type="module">`), some
+browsers block module imports when opening a file directly via `file://`. If the
+3D scene or content doesn't load when double-clicking `index.html`, serve the
+folder locally instead — pick whichever you have:
 
-Open `index.html` in any browser. From the dashboard, use the cards to
-navigate to the HTML, CSS, JavaScript, and Portfolio pages. Every
-practical-program page has **Home** and **Back to Programs** links at the bottom.
+- **VS Code**: install the "Live Server" extension, right-click `index.html` →
+  "Open with Live Server".
+- **Python** (already on most systems): open a terminal in this folder and run
+  `python -m http.server 8000`, then visit `http://localhost:8000`.
+- **Node** (if you have it): `npx serve .` then open the printed URL.
 
-## Project structure
+## Deploy it
+
+This is a fully static site — drag the whole folder onto Netlify, Vercel,
+GitHub Pages, or any static host. Nothing needs to be built or compiled.
+
+## Customize your content
+
+Everything personal lives in **`js/data.js`** — you don't need to touch HTML or
+the 3D scene code to update your info. Look for anything wrapped in `[ADD ...]`
+and replace it:
+
+- `contact` — email, phone, LeetCode. Any field left blank is automatically
+  hidden from the public Contact section.
+- `RESUME_URL` — drop your resume PDF into `assets/resume.pdf` and set
+  `RESUME_URL = '/assets/resume.pdf'`.
+- `education` — fill in the two `[ADD ...]` placeholders (board name + years).
+- `projects` — currently empty on purpose since none are finished yet. Add
+  entries as you ship real projects and the "coming soon" state switches to
+  project cards automatically.
+- `achievements`, `currentlyLearning`, `skillGroups`, `dsaTopics` — edit freely.
+
+## A couple of things worth double-checking
+
+- Your LinkedIn URL was typed as `liankedin.com` — I corrected it to
+  `linkedin.com` in `contact.linkedin`. Please verify the full URL is exactly right.
+- No projects, resume file, email, or phone were provided, so those sections
+  show honest "add this" placeholders instead of invented content.
+
+## Structure
 
 ```
-project/
-├── index.html              (dashboard)
-├── html/                   (HTML program pages + index.html listing)
-├── css/                    (CSS program pages + index.html listing)
-├── javascript/             (JavaScript program pages + index.html listing)
-├── portfolio/               (personal 3D portfolio site: index.html, css/, js/, assets/)
-└── assets/style.css        (shared stylesheet used by every practical-program page)
+index.html          all sections/markup
+css/style.css        design tokens + layout
+js/data.js           ← all editable content lives here
+js/scene.js           Three.js 3D scene (the core interactive experience)
+js/main.js            renders sections, nav, animations, form handling
+assets/               put resume.pdf or images here
 ```
 
-## My Portfolio
+## Notes on the 3D scene
 
-`portfolio/index.html` is my personal interactive portfolio site (3D hero
-scene, About, Education, Skills, Projects, DSA journey, Achievements,
-Resume, and Contact sections), built with HTML, CSS, JavaScript and
-Three.js. It's linked from the dashboard ("My Portfolio" card) and from the
-JavaScript programs list (satisfies the "Complete interactive portfolio
-website" requirement alongside the smaller in-folder demo version).
-
-## Coverage
-
-Every implemented question is provided as its own separate HTML file.
-
-- HTML Programs: 15
-- CSS Programs: 75
-- JavaScript Programs: 121
-- Total: 211
-
-## Notes
-
-All pages are generated from `generate.py` (with `extra_css.py` and `extra_js.py`),
-so any new program only needs one more entry in a list.
+- Built with Three.js (loaded via CDN import map, no build tooling needed) plus
+  its `OrbitControls` and `CSS2DRenderer` addons for the floating node labels.
+- Zoom is clamped and panning disabled to keep the scene focused.
+- On mobile the node radius shrinks slightly and pixel ratio is capped for
+  smoother performance.
+- If WebGL isn't available, a static grid of the same section buttons is shown
+  instead so the site is never unusable.
