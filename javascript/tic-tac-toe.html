@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tic-Tac-Toe Game | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML &middot; CSS &middot; JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Tic-Tac-Toe Game</h1>
+  <p class="subtitle">A two-player Tic-Tac-Toe game with win detection.</p>
+  <div class="program-box">
+<div class="demo-area">
+  <div id="board" style="display:grid;grid-template-columns:repeat(3,60px);gap:6px;"></div>
+  <p id="status">Player X's turn</p>
+  <button class="btn" onclick="resetGame()">Reset</button>
+</div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+let cells = Array(9).fill("");
+let turn = "X";
+const board = document.getElementById("board");
+const status = document.getElementById("status");
+const wins = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+function render(){
+  board.innerHTML = "";
+  cells.forEach((val, i) => {
+    const btn = document.createElement("button");
+    btn.className = "btn";
+    btn.style.height = "60px";
+    btn.textContent = val;
+    btn.onclick = () => play(i);
+    board.appendChild(btn);
+  });
+}
+function play(i){
+  if (cells[i] || checkWinner()) return;
+  cells[i] = turn;
+  const winner = checkWinner();
+  if (winner){ status.textContent = "Player " + winner + " wins!"; }
+  else if (cells.every(c => c)){ status.textContent = "It's a draw!"; }
+  else { turn = turn === "X" ? "O" : "X"; status.textContent = "Player " + turn + "'s turn"; }
+  render();
+}
+function checkWinner(){
+  for (const [a,b,c] of wins){
+    if (cells[a] && cells[a] === cells[b] && cells[b] === cells[c]) return cells[a];
+  }
+  return null;
+}
+function resetGame(){ cells = Array(9).fill(""); turn = "X"; status.textContent = "Player X's turn"; render(); }
+render();
+</script>
+</body>
+</html>

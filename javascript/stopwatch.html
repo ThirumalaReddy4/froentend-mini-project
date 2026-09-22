@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stopwatch | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Stopwatch</h1>
+  <p class="subtitle">Start, pause, and reset a running stopwatch.</p>
+  <div class="program-box">
+
+<div class="demo-area" style="text-align:center;">
+  <h2 id="swDisplay">00:00.0</h2>
+  <button class="btn" onclick="startSW()">Start</button>
+  <button class="btn" onclick="pauseSW()">Pause</button>
+  <button class="btn" onclick="resetSW()">Reset</button>
+</div>
+
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+
+let swInterval, swElapsed = 0, swRunning = false;
+function render(){
+  const mins = Math.floor(swElapsed/60000);
+  const secs = Math.floor((swElapsed%60000)/1000);
+  const tenths = Math.floor((swElapsed%1000)/100);
+  document.getElementById('swDisplay').textContent =
+    `${String(mins).padStart(2,'0')}:${String(secs).padStart(2,'0')}.${tenths}`;
+}
+function startSW(){
+  if(swRunning) return;
+  swRunning = true;
+  const start = Date.now() - swElapsed;
+  swInterval = setInterval(()=>{ swElapsed = Date.now()-start; render(); }, 100);
+}
+function pauseSW(){ swRunning=false; clearInterval(swInterval); }
+function resetSW(){ pauseSW(); swElapsed=0; render(); }
+
+</script>
+</body>
+</html>

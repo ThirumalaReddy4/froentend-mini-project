@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add and Delete Table Rows | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML &middot; CSS &middot; JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Add and Delete Table Rows</h1>
+  <p class="subtitle">A table where new rows can be added or removed using JavaScript.</p>
+  <div class="program-box">
+<div class="demo-area">
+  <input type="text" id="rowInput" placeholder="Row text">
+  <button class="btn" onclick="addRow()">Add Row</button>
+  <table class="demo-table" id="rowTable">
+    <tr><th>Item</th><th>Action</th></tr>
+  </table>
+</div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+function addRow(){
+  const input = document.getElementById("rowInput");
+  if (!input.value.trim()) return;
+  const table = document.getElementById("rowTable");
+  const tr = document.createElement("tr");
+  const tdText = document.createElement("td");
+  tdText.textContent = input.value;
+  const tdBtn = document.createElement("td");
+  const delBtn = document.createElement("button");
+  delBtn.className = "btn";
+  delBtn.textContent = "Delete";
+  delBtn.onclick = () => tr.remove();
+  tdBtn.appendChild(delBtn);
+  tr.appendChild(tdText);
+  tr.appendChild(tdBtn);
+  table.appendChild(tr);
+  input.value = "";
+}
+</script>
+</body>
+</html>

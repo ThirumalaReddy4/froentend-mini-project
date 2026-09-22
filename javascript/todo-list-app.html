@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>To-Do List Application (Mini Project) | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">To-Do List Application (Mini Project)</h1>
+  <p class="subtitle">A to-do list mini project with mark-as-complete and delete, saved to localStorage.</p>
+  <div class="program-box">
+<input id="tdaInput" placeholder="New task">
+<button class="btn" onclick="addTask()">Add Task</button>
+<ul id="tdaList" style="margin-top:12px;"></ul>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+function getTasks(){ return JSON.parse(localStorage.getItem('todoAppTasks') || '[]'); }
+function saveTasks(t){ localStorage.setItem('todoAppTasks', JSON.stringify(t)); }
+function addTask(){
+  const val = document.getElementById('tdaInput').value.trim();
+  if(!val) return;
+  const tasks = getTasks();
+  tasks.push({ text: val, done: false });
+  saveTasks(tasks);
+  document.getElementById('tdaInput').value = '';
+  render();
+}
+function toggle(i){
+  const tasks = getTasks();
+  tasks[i].done = !tasks[i].done;
+  saveTasks(tasks);
+  render();
+}
+function del(i){
+  const tasks = getTasks();
+  tasks.splice(i, 1);
+  saveTasks(tasks);
+  render();
+}
+function render(){
+  const list = document.getElementById('tdaList');
+  list.innerHTML = '';
+  getTasks().forEach((t, i) => {
+    const li = document.createElement('li');
+    li.style.textDecoration = t.done ? 'line-through' : 'none';
+    li.textContent = t.text + ' ';
+    const doneBtn = document.createElement('button');
+    doneBtn.textContent = t.done ? 'Undo' : 'Done';
+    doneBtn.className = 'btn';
+    doneBtn.onclick = () => toggle(i);
+    const delBtn = document.createElement('button');
+    delBtn.textContent = 'Delete';
+    delBtn.className = 'btn';
+    delBtn.style.marginLeft = '6px';
+    delBtn.onclick = () => del(i);
+    li.appendChild(doneBtn);
+    li.appendChild(delBtn);
+    list.appendChild(li);
+  });
+}
+render();
+</script>
+</body>
+</html>

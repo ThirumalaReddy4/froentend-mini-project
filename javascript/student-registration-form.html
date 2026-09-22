@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Registration Form with JavaScript Validation | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML &middot; CSS &middot; JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Student Registration Form</h1>
+  <p class="subtitle">Validates full name, roll number, email, date of birth, phone and course selection before submitting.</p>
+  <div class="program-box">
+<div class="demo-area">
+  <div class="form-group">
+    <label>Full Name</label>
+    <input type="text" id="fullName">
+    <small class="error" id="err-fullName"></small>
+  </div>
+  <div class="form-group">
+    <label>Roll Number</label>
+    <input type="text" id="rollNumber">
+    <small class="error" id="err-rollNumber"></small>
+  </div>
+  <div class="form-group">
+    <label>Email</label>
+    <input type="text" id="email">
+    <small class="error" id="err-email"></small>
+  </div>
+  <div class="form-group">
+    <label>Date of Birth</label>
+    <input type="date" id="dob">
+    <small class="error" id="err-dob"></small>
+  </div>
+  <div class="form-group">
+    <label>Phone Number</label>
+    <input type="text" id="phone">
+    <small class="error" id="err-phone"></small>
+  </div>
+  <div class="form-group">
+    <label>Course</label>
+    <select id="course">
+      <option value="">-- Select Course --</option>
+      <option value="cs">Computer Science</option>
+      <option value="ece">Electronics</option>
+      <option value="mech">Mechanical</option>
+      <option value="civil">Civil</option>
+    </select>
+    <small class="error" id="err-course"></small>
+  </div>
+  <button class="btn" onclick="validateForm()">Register</button>
+  <p id="successMsg" style="color:#2a9d8f; font-weight:bold; margin-top:10px;"></p>
+</div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+function setError(field, message){
+  document.getElementById("err-" + field).textContent = message;
+}
+
+function clearErrors(){
+  ["fullName","rollNumber","email","dob","phone","course"].forEach(f => setError(f, ""));
+  document.getElementById("successMsg").textContent = "";
+}
+
+function validateForm(){
+  clearErrors();
+  let valid = true;
+
+  const fullName = document.getElementById("fullName").value.trim();
+  if (fullName.length < 3){
+    setError("fullName", "Name must be at least 3 characters.");
+    valid = false;
+  }
+
+  const rollNumber = document.getElementById("rollNumber").value.trim();
+  if (!/^[A-Za-z0-9]{4,10}$/.test(rollNumber)){
+    setError("rollNumber", "Roll number must be 4-10 alphanumeric characters.");
+    valid = false;
+  }
+
+  const email = document.getElementById("email").value.trim();
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+    setError("email", "Enter a valid email address.");
+    valid = false;
+  }
+
+  const dob = document.getElementById("dob").value;
+  if (!dob){
+    setError("dob", "Date of birth is required.");
+    valid = false;
+  } else {
+    const age = (new Date() - new Date(dob)) / (1000 * 60 * 60 * 24 * 365.25);
+    if (age < 15){
+      setError("dob", "Student must be at least 15 years old.");
+      valid = false;
+    }
+  }
+
+  const phone = document.getElementById("phone").value.trim();
+  if (!/^\d{10}$/.test(phone)){
+    setError("phone", "Phone number must be exactly 10 digits.");
+    valid = false;
+  }
+
+  const course = document.getElementById("course").value;
+  if (!course){
+    setError("course", "Please select a course.");
+    valid = false;
+  }
+
+  if (valid){
+    document.getElementById("successMsg").textContent = "Registration successful for " + fullName + "!";
+  }
+  return false;
+}
+</script>
+</body>
+</html>

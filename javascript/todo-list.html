@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>To-Do List | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">To-Do List</h1>
+  <p class="subtitle">Add, complete, and remove tasks — a classic DOM manipulation mini project.</p>
+  <div class="program-box">
+
+<div class="demo-area">
+  <input id="todoInput" placeholder="Add a new task...">
+  <button class="btn" onclick="addTodo()">Add</button>
+  <ul id="todoList" style="list-style:none;padding:0;margin-top:14px;"></ul>
+</div>
+
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+
+function addTodo(){
+  const input = document.getElementById('todoInput');
+  const text = input.value.trim();
+  if(!text) return;
+  const li = document.createElement('li');
+  li.style.cssText = 'background:var(--bg-soft);padding:10px;margin-bottom:6px;border-radius:8px;display:flex;justify-content:space-between;align-items:center;';
+  const span = document.createElement('span');
+  span.textContent = text;
+  span.style.cursor='pointer';
+  span.onclick = () => span.style.textDecoration = span.style.textDecoration === 'line-through' ? 'none' : 'line-through';
+  const del = document.createElement('button');
+  del.textContent = '✕';
+  del.style.cssText = 'background:#ff7676;border:none;border-radius:6px;color:#fff;cursor:pointer;padding:4px 10px;';
+  del.onclick = () => li.remove();
+  li.appendChild(span); li.appendChild(del);
+  document.getElementById('todoList').appendChild(li);
+  input.value = '';
+}
+
+</script>
+</body>
+</html>

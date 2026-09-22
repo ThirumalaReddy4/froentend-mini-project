@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weather Application using an API | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML &middot; CSS &middot; JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Weather Application using an API</h1>
+  <p class="subtitle">Fetches current weather for a city using the free, keyless Open-Meteo API.</p>
+  <div class="program-box">
+<div class="demo-area">
+  <input type="text" id="cityLat" placeholder="Latitude (e.g. 13.08)" value="13.08">
+  <input type="text" id="cityLon" placeholder="Longitude (e.g. 80.27)" value="80.27">
+  <button class="btn" onclick="getWeather()">Get Weather</button>
+  <div class="output-box" id="out"></div>
+</div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+async function getWeather(){
+  const out = document.getElementById("out");
+  const lat = document.getElementById("cityLat").value;
+  const lon = document.getElementById("cityLon").value;
+  out.textContent = "Loading...";
+  try {
+    const res = await fetch("https://api.open-meteo.com/v1/forecast?latitude=" + lat + "&longitude=" + lon + "&current_weather=true");
+    const data = await res.json();
+    const w = data.current_weather;
+    out.textContent = "Temperature: " + w.temperature + "C\nWind speed: " + w.windspeed + " km/h\nWind direction: " + w.winddirection + " deg";
+  } catch (err) {
+    out.textContent = "Could not fetch live weather (offline?). Sample data: Temperature: 29C, Wind speed: 12 km/h.";
+  }
+}
+</script>
+</body>
+</html>

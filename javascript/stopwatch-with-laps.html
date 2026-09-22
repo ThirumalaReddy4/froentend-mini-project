@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stopwatch with Lap Times (Mini Project) | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Stopwatch with Lap Times (Mini Project)</h1>
+  <p class="subtitle">A stopwatch mini project that records lap times in addition to start/stop/reset.</p>
+  <div class="program-box">
+<div class="output-box" id="swTime" style="font-size:2rem; text-align:center;">00:00:00</div>
+<button class="btn" onclick="startSW()">Start</button>
+<button class="btn" onclick="stopSW()">Stop</button>
+<button class="btn" onclick="lapSW()">Lap</button>
+<button class="btn" onclick="resetSW()">Reset</button>
+<ul id="lapList" style="margin-top:12px;"></ul>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+let elapsed = 0, timer = null;
+function format(ms){
+  const totalSec = Math.floor(ms/1000);
+  const h = String(Math.floor(totalSec/3600)).padStart(2,'0');
+  const m = String(Math.floor((totalSec%3600)/60)).padStart(2,'0');
+  const s = String(totalSec%60).padStart(2,'0');
+  return h+':'+m+':'+s;
+}
+function startSW(){
+  if(timer) return;
+  const start = Date.now() - elapsed;
+  timer = setInterval(() => {
+    elapsed = Date.now() - start;
+    document.getElementById('swTime').textContent = format(elapsed);
+  }, 200);
+}
+function stopSW(){ clearInterval(timer); timer = null; }
+function resetSW(){ stopSW(); elapsed = 0; document.getElementById('swTime').textContent = '00:00:00'; document.getElementById('lapList').innerHTML=''; }
+function lapSW(){
+  const li = document.createElement('li');
+  li.textContent = 'Lap: ' + format(elapsed);
+  document.getElementById('lapList').appendChild(li);
+}
+</script>
+</body>
+</html>

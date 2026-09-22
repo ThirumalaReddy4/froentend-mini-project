@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Window Object | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML &middot; CSS &middot; JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Window Object</h1>
+  <p class="subtitle">Demonstrates common window object properties and methods.</p>
+  <div class="program-box">
+    <button class="btn" onclick="run()">Show Window Info</button>
+    <div class="output-box" id="out"></div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+function run(){
+  document.getElementById('out').textContent =
+`Window inner size: ${window.innerWidth} x ${window.innerHeight}
+Window outer size: ${window.outerWidth} x ${window.outerHeight}
+Screen X: ${window.screenX}, Screen Y: ${window.screenY}
+Device pixel ratio: ${window.devicePixelRatio}
+Has focus: ${document.hasFocus()}`;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sort an Array | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Sort an Array</h1>
+  <p class="subtitle">Sorts numbers ascending and descending with sort().</p>
+  <div class="program-box">
+<form class="demo-form" onsubmit="run(); return false;">
+  <label>Numbers (comma separated)<input id="arr" type="text" value="45, 3, 99, 12, 7, 60"></label>
+  <button class="btn" type="submit">Sort</button>
+</form>
+<div class="output-box" id="out"></div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+// Reads the inputs, runs the program logic and prints the result.
+function run() {
+  const arr = document.getElementById('arr').value.split(',').map(x => x.trim()).filter(x => x !== '').map(Number);
+  const result = (() => {
+    const asc = [...arr].sort((a, b) => a - b);
+    const desc = [...arr].sort((a, b) => b - a);
+    return 'Original:   ' + arr.join(', ') + '\nAscending:  ' + asc.join(', ') + '\nDescending: ' + desc.join(', ');
+  })();
+  document.getElementById('out').textContent = result;
+}
+run();
+</script>
+</body>
+</html>

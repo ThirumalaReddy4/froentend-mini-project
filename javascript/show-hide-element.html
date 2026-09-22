@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Show / Hide Element | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Show / Hide Element</h1>
+  <p class="subtitle">Toggles the visibility of an element using a button click event.</p>
+  <div class="program-box">
+
+<button class="btn" onclick="toggle()">Show / Hide</button>
+<div class="demo-area" id="box">I can be hidden and shown again.</div>
+
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+function toggle(){const b=document.getElementById('box'); b.style.display = (b.style.display==='none') ? 'block' : 'none';}
+</script>
+</body>
+</html>

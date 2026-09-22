@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spread and Rest Operators | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Spread and Rest Operators</h1>
+  <p class="subtitle">Spread expands values; rest gathers them.</p>
+  <div class="program-box">
+<button class="btn" onclick="run()">Run</button><div class="output-box" id="out"></div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+
+function total(first, ...others) { return first + others.reduce((a, b) => a + b, 0); }   // rest parameters
+function run() {
+  const a = [1, 2, 3], b = [4, 5];
+  const merged = [...a, ...b];                      // spread in arrays
+  const p = { name: 'Ali', age: 22 };
+  const q = { ...p, city: 'Madurai', age: 23 };     // spread in objects
+  const [head, ...tail] = merged;                   // rest in destructuring
+  document.getElementById('out').textContent =
+    'merged = [' + merged + ']\nobject copy = ' + JSON.stringify(q) +
+    '\nMath.max(...merged) = ' + Math.max(...merged) + '\nhead = ' + head + ', tail = [' + tail + ']' +
+    '\ntotal(1,2,3,4) = ' + total(1, 2, 3, 4);
+}
+run();
+</script>
+</body>
+</html>

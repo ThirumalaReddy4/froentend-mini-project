@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Light / Dark Theme Switcher using localStorage | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML &middot; CSS &middot; JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Light / Dark Theme Switcher using localStorage</h1>
+  <p class="subtitle">Toggles between a light and dark preview theme and remembers the choice in localStorage.</p>
+  <div class="program-box">
+<div class="demo-area" id="themeBox" style="padding:20px;border-radius:10px;">
+  <p>This box shows the current theme preview.</p>
+  <button class="btn" onclick="toggleTheme()">Toggle Theme</button>
+</div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+function applyTheme(theme){
+  const box = document.getElementById("themeBox");
+  if (theme === "light"){
+    box.style.background = "#f4f9fd"; box.style.color = "#10263e";
+  } else {
+    box.style.background = "#0b0d18"; box.style.color = "#e7eaf4";
+  }
+}
+function toggleTheme(){
+  const current = localStorage.getItem("theme") === "light" ? "dark" : "light";
+  localStorage.setItem("theme", current);
+  applyTheme(current);
+}
+applyTheme(localStorage.getItem("theme") || "dark");
+</script>
+</body>
+</html>
