@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web Storage: Sticky Notes | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Web Storage: Sticky Notes</h1>
+  <p class="subtitle">Saves and retrieves notes using localStorage so they persist after refresh.</p>
+  <div class="program-box">
+
+<div class="demo-area">
+  <textarea id="noteInput" rows="4" style="width:100%;padding:10px;border-radius:8px;background:#0b0d18;color:var(--text);border:1px solid var(--border);" placeholder="Write a note..."></textarea>
+  <button class="btn" onclick="saveNote()">Save to localStorage</button>
+  <button class="btn" onclick="clearNote()">Clear Storage</button>
+  <div class="output-box" id="out"></div>
+</div>
+
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+
+function saveNote(){
+  const text = document.getElementById('noteInput').value;
+  localStorage.setItem('practicalNote', text);
+  document.getElementById('out').textContent = 'Saved! Reload this page and it will still be here.';
+}
+function clearNote(){
+  localStorage.removeItem('practicalNote');
+  document.getElementById('noteInput').value = '';
+  document.getElementById('out').textContent = 'Storage cleared.';
+}
+window.addEventListener('DOMContentLoaded', () => {
+  const saved = localStorage.getItem('practicalNote');
+  if(saved){ document.getElementById('noteInput').value = saved; document.getElementById('out').textContent = 'Loaded a previously saved note from localStorage.'; }
+});
+
+</script>
+</body>
+</html>

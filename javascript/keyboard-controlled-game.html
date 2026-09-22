@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keyboard-Controlled Webpage / Game | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML &middot; CSS &middot; JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Keyboard-Controlled Webpage / Game</h1>
+  <p class="subtitle">Move a square around the page using the arrow keys.</p>
+  <div class="program-box">
+<div class="demo-area">
+  <div id="stage" style="position:relative;height:220px;border:1px solid var(--border);border-radius:10px;overflow:hidden;background:var(--card);">
+    <div id="player" style="position:absolute;top:90px;left:10px;width:30px;height:30px;background:var(--accent);border-radius:6px;"></div>
+  </div>
+  <p>Use arrow keys to move the square.</p>
+</div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+const player = document.getElementById("player");
+let x = 10, y = 90;
+document.addEventListener("keydown", e => {
+  if (e.key === "ArrowRight") x += 15;
+  if (e.key === "ArrowLeft") x -= 15;
+  if (e.key === "ArrowDown") y += 15;
+  if (e.key === "ArrowUp") y -= 15;
+  x = Math.max(0, Math.min(x, 250));
+  y = Math.max(0, Math.min(y, 190));
+  player.style.left = x + "px";
+  player.style.top = y + "px";
+});
+</script>
+</body>
+</html>

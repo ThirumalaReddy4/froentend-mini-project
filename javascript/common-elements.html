@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Common Elements in Two Arrays | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Common Elements in Two Arrays</h1>
+  <p class="subtitle">Finds the intersection using filter() and includes().</p>
+  <div class="program-box">
+<form class="demo-form" onsubmit="run(); return false;">
+  <label>Array 1<input id="a" type="text" value="1, 2, 3, 4, 5"></label>
+  <label>Array 2<input id="b" type="text" value="4, 5, 6, 7, 2"></label>
+  <button class="btn" type="submit">Find</button>
+</form>
+<div class="output-box" id="out"></div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+// Reads the inputs, runs the program logic and prints the result.
+function run() {
+  const a = document.getElementById('a').value.split(',').map(x => x.trim()).filter(x => x !== '');
+  const b = document.getElementById('b').value.split(',').map(x => x.trim()).filter(x => x !== '');
+  const result = (() => {
+    const common = [...new Set(a.filter(x => b.includes(x)))];
+    return common.length ? 'Common: ' + common.join(', ') : 'No common elements.';
+  })();
+  document.getElementById('out').textContent = result;
+}
+run();
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Event Bubbling and Event Capturing | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML &middot; CSS &middot; JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Event Bubbling and Event Capturing</h1>
+  <p class="subtitle">Demonstrates how events travel down (capturing) and up (bubbling) the DOM tree.</p>
+  <div class="program-box">
+<div class="demo-area">
+  <div id="outer" style="padding:20px;border:1px solid var(--border);border-radius:10px;">
+    Outer
+    <div id="middle" style="padding:20px;border:1px solid var(--border);border-radius:10px;margin-top:10px;">
+      Middle
+      <div id="inner" style="padding:20px;border:1px solid var(--border);border-radius:10px;margin-top:10px;">Inner (click me)</div>
+    </div>
+  </div>
+  <div class="output-box" id="out"></div>
+</div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+const out = document.getElementById("out");
+function log(msg){ out.textContent += msg + "\n"; }
+document.getElementById("outer").addEventListener("click", () => log("Bubbling reached: outer"), false);
+document.getElementById("middle").addEventListener("click", () => log("Bubbling reached: middle"), false);
+document.getElementById("inner").addEventListener("click", () => { out.textContent = ""; log("Clicked: inner"); }, false);
+document.getElementById("outer").addEventListener("click", () => log("Capturing phase: outer"), true);
+</script>
+</body>
+</html>

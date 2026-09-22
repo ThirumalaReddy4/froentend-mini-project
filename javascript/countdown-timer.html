@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Countdown Timer | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Countdown Timer</h1>
+  <p class="subtitle">Counts down from a user-specified number of seconds.</p>
+  <div class="program-box">
+
+<div class="demo-area" style="text-align:center;">
+  <label>Seconds<input id="ctSeconds" type="number" value="30" style="width:80px;"></label>
+  <h2 id="ctDisplay">00:30</h2>
+  <button class="btn" onclick="startCT()">Start</button>
+  <button class="btn" onclick="stopCT()">Stop</button>
+</div>
+
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+
+let ctInterval, ctRemaining;
+function render(){
+  const m = Math.floor(ctRemaining/60), s = ctRemaining%60;
+  document.getElementById('ctDisplay').textContent = `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+}
+function startCT(){
+  clearInterval(ctInterval);
+  ctRemaining = Number(document.getElementById('ctSeconds').value);
+  render();
+  ctInterval = setInterval(()=>{
+    ctRemaining--;
+    if(ctRemaining < 0){ clearInterval(ctInterval); document.getElementById('ctDisplay').textContent='Time Up!'; return; }
+    render();
+  }, 1000);
+}
+function stopCT(){ clearInterval(ctInterval); }
+
+</script>
+</body>
+</html>

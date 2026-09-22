@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feedback Form with Validation | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML &middot; CSS &middot; JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Feedback Form with Validation</h1>
+  <p class="subtitle">Validates a name, rating and comments field before showing a thank-you message.</p>
+  <div class="program-box">
+<div class="demo-area">
+  <form onsubmit="return submitFeedback(event)">
+    <input type="text" id="fName" placeholder="Your name">
+    <select id="fRating"><option value="">Rating</option><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select>
+    <textarea id="fComments" rows="3" style="width:100%;padding:10px;border-radius:8px;background:#0b0d18;color:var(--text);border:1px solid var(--border);" placeholder="Comments"></textarea>
+    <button class="btn" type="submit">Submit Feedback</button>
+  </form>
+  <div class="output-box" id="out"></div>
+</div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+function submitFeedback(e){
+  e.preventDefault();
+  const name = document.getElementById("fName").value.trim();
+  const rating = document.getElementById("fRating").value;
+  const comments = document.getElementById("fComments").value.trim();
+  const out = document.getElementById("out");
+  if (!name || !rating || !comments){
+    out.textContent = "Please fill in all fields before submitting.";
+    return false;
+  }
+  out.textContent = "Thank you, " + name + "! Your " + rating + "-star feedback was recorded.";
+  return false;
+}
+</script>
+</body>
+</html>

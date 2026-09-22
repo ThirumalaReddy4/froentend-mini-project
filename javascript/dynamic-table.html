@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create a Dynamic Table | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML &middot; CSS &middot; JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Create a Dynamic Table</h1>
+  <p class="subtitle">Builds an HTML table entirely from a JavaScript array of data.</p>
+  <div class="program-box">
+<div class="demo-area">
+  <button class="btn" onclick="buildTable()">Build Table</button>
+  <div id="tableHolder"></div>
+</div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+const data = [
+  { name: "Asha", score: 88 },
+  { name: "Ravi", score: 76 },
+  { name: "Meera", score: 92 },
+];
+function buildTable(){
+  const table = document.createElement("table");
+  table.className = "demo-table";
+  const thead = document.createElement("tr");
+  ["Name","Score"].forEach(h => {
+    const th = document.createElement("th");
+    th.textContent = h;
+    thead.appendChild(th);
+  });
+  table.appendChild(thead);
+  data.forEach(row => {
+    const tr = document.createElement("tr");
+    const tdName = document.createElement("td");
+    tdName.textContent = row.name;
+    const tdScore = document.createElement("td");
+    tdScore.textContent = row.score;
+    tr.appendChild(tdName);
+    tr.appendChild(tdScore);
+    table.appendChild(tr);
+  });
+  const holder = document.getElementById("tableHolder");
+  holder.innerHTML = "";
+  holder.appendChild(table);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Expense Tracker | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML &middot; CSS &middot; JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Expense Tracker</h1>
+  <p class="subtitle">Tracks a list of expenses and shows a running total.</p>
+  <div class="program-box">
+<div class="demo-area">
+  <input type="text" id="expName" placeholder="Expense name">
+  <input type="number" id="expAmount" placeholder="Amount">
+  <button class="btn" onclick="addExpense()">Add Expense</button>
+  <div class="output-box" id="out"></div>
+</div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+let expenses = [];
+function addExpense(){
+  const name = document.getElementById("expName").value.trim();
+  const amount = parseFloat(document.getElementById("expAmount").value);
+  if (!name || isNaN(amount)) return;
+  expenses.push({ name, amount });
+  render();
+  document.getElementById("expName").value = "";
+  document.getElementById("expAmount").value = "";
+}
+function render(){
+  const total = expenses.reduce((sum, e) => sum + e.amount, 0);
+  const list = expenses.map(e => e.name + ": Rs " + e.amount).join("\n");
+  document.getElementById("out").textContent = (list || "No expenses yet.") + "\n\nTotal: Rs " + total;
+}
+</script>
+</body>
+</html>

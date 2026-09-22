@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simple Calculator | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+.calc{max-width:280px;margin:0 auto;background:var(--bg-soft);padding:14px;border-radius:12px;}
+.calc input{width:100%;padding:12px;font-size:1.4rem;text-align:right;border-radius:8px;border:1px solid var(--border);background:#0b0d18;color:var(--text);margin-bottom:10px;}
+.calc .row{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;}
+.calc button{padding:14px 0;border:none;border-radius:8px;background:var(--accent);color:#fff;font-size:1.1rem;cursor:pointer;}
+.calc button.op{background:var(--accent-2);color:#04261f;}
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Simple Calculator</h1>
+  <p class="subtitle">A working on-screen calculator built with HTML, CSS, and JavaScript.</p>
+  <div class="program-box">
+
+<div class="calc">
+  <input id="calcScreen" readonly value="0">
+  <div class="row">
+    <button onclick="press('7')">7</button><button onclick="press('8')">8</button><button onclick="press('9')">9</button><button class="op" onclick="press('/')">÷</button>
+    <button onclick="press('4')">4</button><button onclick="press('5')">5</button><button onclick="press('6')">6</button><button class="op" onclick="press('*')">×</button>
+    <button onclick="press('1')">1</button><button onclick="press('2')">2</button><button onclick="press('3')">3</button><button class="op" onclick="press('-')">-</button>
+    <button onclick="press('0')">0</button><button onclick="press('.')">.</button><button class="op" onclick="calcEval()">=</button><button class="op" onclick="press('+')">+</button>
+    <button onclick="clearCalc()" style="grid-column:span 4;background:#ff7676;">Clear</button>
+  </div>
+</div>
+
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+
+let expr = '';
+function press(v){ expr += v; document.getElementById('calcScreen').value = expr; }
+function clearCalc(){ expr=''; document.getElementById('calcScreen').value = '0'; }
+function calcEval(){
+  try{ expr = String(Function('"use strict";return ('+expr+')')()); }
+  catch(e){ expr = 'Error'; }
+  document.getElementById('calcScreen').value = expr;
+}
+
+</script>
+</body>
+</html>

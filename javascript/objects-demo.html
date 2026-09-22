@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Objects in JavaScript | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Objects in JavaScript</h1>
+  <p class="subtitle">Create an object, read and change properties, add methods and loop over keys.</p>
+  <div class="program-box">
+<button class="btn" onclick="run()">Run</button><div class="output-box" id="out"></div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+
+const student = {
+  name: 'Meena', age: 20, course: 'BCA',
+  marks: { html: 88, css: 82, js: 91 },
+  average() { const m = Object.values(this.marks); return (m.reduce((a, b) => a + b) / m.length).toFixed(1); }
+};
+function run() {
+  student.city = 'Chennai';           // add property
+  student.age = 21;                   // update property
+  delete student.course;              // delete property
+  const keys = Object.keys(student).join(', ');
+  document.getElementById('out').textContent =
+    'Name: ' + student.name + ', Age: ' + student.age + '\nKeys: ' + keys +
+    '\nAverage marks: ' + student.average() + '\nJSON: ' + JSON.stringify(student);
+}
+run();
+</script>
+</body>
+</html>

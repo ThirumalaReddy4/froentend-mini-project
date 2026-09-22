@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Change Background Colour Using JavaScript | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Change Background Colour Using JavaScript</h1>
+  <p class="subtitle">Changes the page-box background with buttons, a colour picker and a random colour.</p>
+  <div class="program-box">
+<div class="demo-area" id="target" style="min-height:120px;display:flex;align-items:center;justify-content:center;transition:.3s">Background colour demo</div>
+<div style="margin-top:12px;">
+  <button class="btn" onclick="setBg('#35d0ba')">Teal</button>
+  <button class="btn" onclick="setBg('#ff7676')">Red</button>
+  <button class="btn" onclick="setBg('#f1c40f')">Yellow</button>
+  <button class="btn" onclick="randomBg()">Random</button>
+  <label style="margin-left:8px">Pick: <input type="color" id="pick" value="#ff6b6b" oninput="setBg(this.value)"></label>
+</div>
+<div class="output-box" id="out"></div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+
+const target = document.getElementById('target');
+function setBg(color) {
+  target.style.background = color;
+  document.getElementById('out').textContent = 'Background colour set to ' + color;
+}
+function randomBg() {
+  const color = '#' + Math.floor(Math.random() * 0xffffff).toString(16).padStart(6, '0');
+  setBg(color);
+}
+</script>
+</body>
+</html>

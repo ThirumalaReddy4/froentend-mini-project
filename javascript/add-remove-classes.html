@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add / Remove CSS Classes Dynamically | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.highlight { background: var(--accent); color: #06070d; padding: 4px 8px; border-radius: 6px; }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML &middot; CSS &middot; JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Add / Remove CSS Classes Dynamically</h1>
+  <p class="subtitle">Uses classList.add, remove and toggle to change an element's appearance.</p>
+  <div class="program-box">
+<style>
+.highlight { background: var(--accent); color: #06070d; padding: 4px 8px; border-radius: 6px; }
+</style>
+<div class="demo-area">
+  <p id="box">This box can be highlighted.</p>
+  <button class="btn" onclick="addClass()">Add Class</button>
+  <button class="btn" onclick="removeClass()">Remove Class</button>
+  <button class="btn" onclick="toggleClass()">Toggle Class</button>
+</div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+function addClass(){ document.getElementById("box").classList.add("highlight"); }
+function removeClass(){ document.getElementById("box").classList.remove("highlight"); }
+function toggleClass(){ document.getElementById("box").classList.toggle("highlight"); }
+</script>
+</body>
+</html>

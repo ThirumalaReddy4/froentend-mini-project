@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Login Form with JavaScript Validation | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.lf{max-width:380px}.err{color:#c0392b;display:block;min-height:1em}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Responsive Login Form with JavaScript Validation</h1>
+  <p class="subtitle">Validates email and password and shows friendly error messages.</p>
+  <div class="program-box">
+<form class="demo-form lf" id="f" novalidate>
+  <label>Email<input id="email" type="email" placeholder="you@example.com"></label><small class="err" id="e1"></small>
+  <label>Password<input id="pw" type="password" placeholder="min 8 chars, letter + number"></label><small class="err" id="e2"></small>
+  <label style="display:flex;gap:6px;align-items:center"><input type="checkbox" id="show" style="width:auto"> Show password</label>
+  <button class="btn" type="submit">Login</button>
+</form><div class="output-box" id="out"></div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+
+const f = document.getElementById('f'), pw = document.getElementById('pw');
+document.getElementById('show').addEventListener('change', e => pw.type = e.target.checked ? 'text' : 'password');
+f.addEventListener('submit', e => {
+  e.preventDefault();
+  const email = document.getElementById('email').value.trim();
+  let ok = true;
+  const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  document.getElementById('e1').textContent = emailOk ? '' : 'Enter a valid email address.';
+  const pwOk = pw.value.length >= 8 && /[A-Za-z]/.test(pw.value) && /\d/.test(pw.value);
+  document.getElementById('e2').textContent = pwOk ? '' : 'Password needs 8+ characters with a letter and a number.';
+  document.getElementById('out').textContent = emailOk && pwOk ? 'Login successful (demo). Welcome, ' + email + '!' : 'Please fix the errors above.';
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Slideshow / Carousel | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML &middot; CSS &middot; JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Image Slideshow / Carousel</h1>
+  <p class="subtitle">A simple JavaScript slideshow that cycles through a set of colored slides.</p>
+  <div class="program-box">
+<div class="demo-area">
+  <div id="slide" style="height:200px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;font-weight:bold;color:#06070d;"></div>
+  <button class="btn" onclick="prevSlide()">&larr; Prev</button>
+  <button class="btn" onclick="nextSlide()">Next &rarr;</button>
+</div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+const slides = [
+  { color: "#ff7ab8", label: "Slide 1" },
+  { color: "#a78bfa", label: "Slide 2" },
+  { color: "#6ee7f9", label: "Slide 3" },
+];
+let idx = 0;
+function render(){
+  const s = slides[idx];
+  const el = document.getElementById("slide");
+  el.style.background = s.color;
+  el.textContent = s.label;
+}
+function nextSlide(){ idx = (idx + 1) % slides.length; render(); }
+function prevSlide(){ idx = (idx - 1 + slides.length) % slides.length; render(); }
+render();
+</script>
+</body>
+</html>

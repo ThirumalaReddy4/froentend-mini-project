@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prime Number Check | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Prime Number Check</h1>
+  <p class="subtitle">Checks whether a given number is prime.</p>
+  <div class="program-box">
+<form class="demo-form" onsubmit="return false;"><label>Number<input id="n" type="number" value="29"></label><button class="btn" onclick="check()">Check</button></form><div class="output-box" id="out"></div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+
+function check(){
+  const n=Number(document.getElementById('n').value);
+  let isPrime = n>1;
+  for(let i=2;i*i<=n;i++){ if(n%i===0){isPrime=false;break;} }
+  document.getElementById('out').textContent = `${n} is ${isPrime?'a PRIME':'NOT a prime'} number.`;
+}
+
+</script>
+</body>
+</html>

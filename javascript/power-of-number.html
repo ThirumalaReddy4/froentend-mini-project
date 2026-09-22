@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Power of a Number | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Power of a Number</h1>
+  <p class="subtitle">Calculates base raised to an exponent using a loop and Math.pow.</p>
+  <div class="program-box">
+<form class="demo-form" onsubmit="run(); return false;">
+  <label>Base<input id="base" type="number" value="2"></label>
+  <label>Exponent (whole number)<input id="exp" type="number" value="10"></label>
+  <button class="btn" type="submit">Calculate</button>
+</form>
+<div class="output-box" id="out"></div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+// Reads the inputs, runs the program logic and prints the result.
+function run() {
+  const base = Number(document.getElementById('base').value);
+  const exp = Number(document.getElementById('exp').value);
+  const result = (() => {
+    let result = 1;
+    for (let i = 0; i < Math.abs(exp); i++) result *= base;
+    if (exp < 0) result = 1 / result;
+    return 'Loop result: ' + base + '^' + exp + ' = ' + result + '\nMath.pow result: ' + Math.pow(base, exp);
+  })();
+  document.getElementById('out').textContent = result;
+}
+run();
+</script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Change CSS Styles Using JavaScript | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML &middot; CSS &middot; JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Change CSS Styles Using JavaScript</h1>
+  <p class="subtitle">Uses element.style to update individual CSS properties (font size, color, border, etc.) at runtime.</p>
+  <div class="program-box">
+<div class="demo-area">
+  <div id="box" style="padding:20px; border:2px solid #888; border-radius:8px; margin-bottom:15px;">
+    Style me!
+  </div>
+  <button class="btn" onclick="changeColor()">Change Text Color</button>
+  <button class="btn" onclick="changeBg()">Change Background</button>
+  <button class="btn" onclick="increaseFont()">Increase Font Size</button>
+  <button class="btn" onclick="decreaseFont()">Decrease Font Size</button>
+  <button class="btn" onclick="toggleBorder()">Toggle Border Style</button>
+  <button class="btn" onclick="resetStyles()">Reset</button>
+</div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+const colors = ["#e63946", "#2a9d8f", "#264653", "#f4a261", "#8338ec"];
+let colorIndex = 0;
+let fontSize = 16;
+let dashed = false;
+
+function box(){ return document.getElementById("box"); }
+
+function changeColor(){
+  colorIndex = (colorIndex + 1) % colors.length;
+  box().style.color = colors[colorIndex];
+}
+
+function changeBg(){
+  colorIndex = (colorIndex + 1) % colors.length;
+  box().style.backgroundColor = colors[colorIndex] + "33";
+}
+
+function increaseFont(){
+  fontSize += 2;
+  box().style.fontSize = fontSize + "px";
+}
+
+function decreaseFont(){
+  fontSize = Math.max(10, fontSize - 2);
+  box().style.fontSize = fontSize + "px";
+}
+
+function toggleBorder(){
+  dashed = !dashed;
+  box().style.borderStyle = dashed ? "dashed" : "solid";
+}
+
+function resetStyles(){
+  box().removeAttribute("style");
+  box().style.padding = "20px";
+  box().style.border = "2px solid #888";
+  box().style.borderRadius = "8px";
+  box().style.marginBottom = "15px";
+  fontSize = 16;
+  dashed = false;
+}
+</script>
+</body>
+</html>

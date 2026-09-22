@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form Events: submit, change, focus, blur | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML &middot; CSS &middot; JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Form Events: submit, change, focus, blur</h1>
+  <p class="subtitle">Demonstrates the four common form events in a single small form.</p>
+  <div class="program-box">
+<div class="demo-area">
+  <form id="demoForm" onsubmit="return handleSubmit(event)">
+    <input type="text" id="nameField" placeholder="Your name">
+    <select id="colorField"><option>Red</option><option>Blue</option><option>Green</option></select>
+    <button class="btn" type="submit">Submit</button>
+  </form>
+  <div class="output-box" id="out"></div>
+</div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+const out = document.getElementById("out");
+document.getElementById("nameField").addEventListener("focus", () => out.textContent = "focus event on name field");
+document.getElementById("nameField").addEventListener("blur", () => out.textContent = "blur event on name field");
+document.getElementById("colorField").addEventListener("change", () => out.textContent = "change event: " + document.getElementById("colorField").value);
+function handleSubmit(e){
+  e.preventDefault();
+  out.textContent = "submit event: form submitted with name = " + document.getElementById("nameField").value;
+  return false;
+}
+</script>
+</body>
+</html>

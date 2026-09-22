@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simple Shopping Cart (Mini Project) | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Simple Shopping Cart (Mini Project)</h1>
+  <p class="subtitle">A shopping cart mini project with quantity controls and item removal (in-memory, not persisted).</p>
+  <div class="program-box">
+<div class="demo-area">
+  <button class="btn" onclick="scAdd('Notebook', 60)">Add Notebook (₹60)</button>
+  <button class="btn" onclick="scAdd('Pen', 10)">Add Pen (₹10)</button>
+  <button class="btn" onclick="scAdd('Bag', 899)">Add Bag (₹899)</button>
+</div>
+<ul id="scList" style="margin-top:12px;"></ul>
+<p class="output-box" id="scTotal">Total: ₹0</p>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+let cart = [];
+function scAdd(name, price){
+  const existing = cart.find(i => i.name === name);
+  if(existing) existing.qty++;
+  else cart.push({ name, price, qty: 1 });
+  render();
+}
+function scRemove(name){
+  cart = cart.filter(i => i.name !== name);
+  render();
+}
+function render(){
+  const list = document.getElementById('scList');
+  list.innerHTML = '';
+  let total = 0;
+  cart.forEach(item => {
+    total += item.price * item.qty;
+    const li = document.createElement('li');
+    li.textContent = item.name + ' x' + item.qty + ' — ₹' + (item.price * item.qty) + ' ';
+    const rm = document.createElement('button');
+    rm.textContent = 'Remove';
+    rm.className = 'btn';
+    rm.onclick = () => scRemove(item.name);
+    li.appendChild(rm);
+    list.appendChild(li);
+  });
+  document.getElementById('scTotal').textContent = 'Total: ₹' + total;
+}
+</script>
+</body>
+</html>

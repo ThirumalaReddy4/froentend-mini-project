@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Callbacks, Promises & Async/Await | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Callbacks, Promises & Async/Await</h1>
+  <p class="subtitle">Simulates an asynchronous operation three different ways.</p>
+  <div class="program-box">
+<button class="btn" onclick="run()">Run Async Demo</button><div class="output-box" id="out"></div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+
+function delay(ms){ return new Promise(resolve => setTimeout(resolve, ms)); }
+async function run(){
+  const out = document.getElementById('out');
+  out.textContent = 'Starting...';
+  await delay(600);
+  out.textContent += '\nStep 1 done (after 0.6s, via async/await)';
+  await delay(600);
+  out.textContent += '\nStep 2 done (after another 0.6s)';
+  out.textContent += '\nAll async steps finished!';
+}
+
+</script>
+</body>
+</html>

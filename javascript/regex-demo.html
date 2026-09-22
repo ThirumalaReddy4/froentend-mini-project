@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Regular Expressions Demo | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Regular Expressions Demo</h1>
+  <p class="subtitle">test(), match(), replace() and split() with several patterns.</p>
+  <div class="program-box">
+<form class="demo-form" onsubmit="run(); return false;"><label>Text<input id="txt" value="Call 98765 43210 or email me@site.com on 2026-09-20"></label><button class="btn" type="submit">Run patterns</button></form><div class="output-box" id="out"></div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+
+function run() {
+  const t = document.getElementById('txt').value;
+  const digits = t.match(/\d+/g);                       // all numbers
+  const email  = t.match(/[\w.]+@[\w.]+\.\w+/);         // email
+  const date   = /\d{4}-\d{2}-\d{2}/.test(t);           // ISO date present?
+  const masked = t.replace(/\d/g, '#');                 // replace digits
+  const words  = t.split(/\s+/);                        // split on spaces
+  document.getElementById('out').textContent =
+    'Numbers found: ' + (digits ? digits.join(', ') : 'none') +
+    '\nEmail found: ' + (email ? email[0] : 'none') +
+    '\nContains a date (YYYY-MM-DD): ' + date +
+    '\nDigits masked: ' + masked +
+    '\nWord count: ' + words.length;
+}
+run();
+</script>
+</body>
+</html>

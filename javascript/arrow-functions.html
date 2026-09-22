@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arrow Functions | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Arrow Functions</h1>
+  <p class="subtitle">Short function syntax with implicit return, plus map / filter / reduce.</p>
+  <div class="program-box">
+<button class="btn" onclick="run()">Run</button><div class="output-box" id="out"></div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+
+const add = (a, b) => a + b;             // implicit return
+const double = n => n * 2;               // single parameter
+const info = (name, age) => {            // block body
+  const group = age >= 18 ? 'adult' : 'minor';
+  return `${name} is an ${group}`;
+};
+function run() {
+  const nums = [1, 2, 3, 4, 5, 6];
+  document.getElementById('out').textContent =
+    'add(3, 4) = ' + add(3, 4) + '\ndouble(8) = ' + double(8) + '\n' + info('Ravi', 20) +
+    '\nmap x2: ' + nums.map(double).join(', ') + '\nfilter even: ' + nums.filter(n => n % 2 === 0).join(', ') +
+    '\nreduce sum: ' + nums.reduce((a, b) => a + b, 0);
+}
+run();
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Number Guessing Game (Mini Project - Limited Attempts) | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Number Guessing Game (Mini Project - Limited Attempts)</h1>
+  <p class="subtitle">Guess a number between 1 and 100 within 7 attempts, with higher/lower hints.</p>
+  <div class="program-box">
+<input id="ngInput" type="number" min="1" max="100" placeholder="Your guess">
+<button class="btn" onclick="makeGuess()">Guess</button>
+<button class="btn" onclick="resetGame()">Restart</button>
+<div class="output-box" id="ngOut">You have 7 attempts. Guess a number between 1 and 100.</div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+let target = Math.floor(Math.random() * 100) + 1;
+let attempts = 7;
+function makeGuess(){
+  const val = Number(document.getElementById('ngInput').value);
+  const out = document.getElementById('ngOut');
+  if(!val){ out.textContent = 'Enter a number.'; return; }
+  attempts--;
+  if(val === target){
+    out.textContent = 'Correct! The number was ' + target + '.';
+  } else if(attempts <= 0){
+    out.textContent = 'Out of attempts! The number was ' + target + '.';
+  } else {
+    out.textContent = (val < target ? 'Higher! ' : 'Lower! ') + attempts + ' attempts left.';
+  }
+}
+function resetGame(){
+  target = Math.floor(Math.random() * 100) + 1;
+  attempts = 7;
+  document.getElementById('ngOut').textContent = 'You have 7 attempts. Guess a number between 1 and 100.';
+  document.getElementById('ngInput').value = '';
+}
+</script>
+</body>
+</html>

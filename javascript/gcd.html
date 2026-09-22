@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Greatest Common Divisor (GCD) | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Greatest Common Divisor (GCD)</h1>
+  <p class="subtitle">Euclid's algorithm.</p>
+  <div class="program-box">
+<form class="demo-form" onsubmit="run(); return false;">
+  <label>Number A<input id="a" type="number" value="48"></label>
+  <label>Number B<input id="b" type="number" value="18"></label>
+  <button class="btn" type="submit">Find GCD</button>
+</form>
+<div class="output-box" id="out"></div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+// Reads the inputs, runs the program logic and prints the result.
+function run() {
+  const a = Number(document.getElementById('a').value);
+  const b = Number(document.getElementById('b').value);
+  const result = (() => {
+    let x = Math.abs(a), y = Math.abs(b);
+    while (y !== 0) { [x, y] = [y, x % y]; }
+    return 'GCD of ' + a + ' and ' + b + ' = ' + x;
+  })();
+  document.getElementById('out').textContent = result;
+}
+run();
+</script>
+</body>
+</html>

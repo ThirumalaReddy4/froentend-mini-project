@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Display Validation Errors Dynamically | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML &middot; CSS &middot; JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Display Validation Error Messages Dynamically</h1>
+  <p class="subtitle">Errors appear and disappear live as the user types, with no page reload (uses the "input" event, not form submit).</p>
+  <div class="program-box">
+<div class="demo-area">
+  <div class="form-group">
+    <label>Username</label>
+    <input type="text" id="username" oninput="checkUsername()">
+    <small class="error" id="err-username"></small>
+  </div>
+  <div class="form-group">
+    <label>Email</label>
+    <input type="text" id="emailField" oninput="checkEmail()">
+    <small class="error" id="err-emailField"></small>
+  </div>
+  <div class="form-group">
+    <label>Password</label>
+    <input type="password" id="passwordField" oninput="checkPassword()">
+    <small class="error" id="err-passwordField"></small>
+  </div>
+  <div class="form-group">
+    <label>Confirm Password</label>
+    <input type="password" id="confirmField" oninput="checkConfirm()">
+    <small class="error" id="err-confirmField"></small>
+  </div>
+  <button class="btn" id="submitBtn" disabled onclick="return false;">Submit</button>
+</div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+const state = { username: false, emailField: false, passwordField: false, confirmField: false };
+
+function setError(field, message, ok){
+  document.getElementById("err-" + field).textContent = message;
+  state[field] = ok;
+  updateSubmit();
+}
+
+function updateSubmit(){
+  const allOk = Object.values(state).every(Boolean);
+  document.getElementById("submitBtn").disabled = !allOk;
+}
+
+function checkUsername(){
+  const v = document.getElementById("username").value;
+  if (v.length < 3){
+    setError("username", "Username must be at least 3 characters.", false);
+  } else {
+    setError("username", "", true);
+  }
+}
+
+function checkEmail(){
+  const v = document.getElementById("emailField").value;
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){
+    setError("emailField", "Enter a valid email address.", false);
+  } else {
+    setError("emailField", "", true);
+  }
+}
+
+function checkPassword(){
+  const v = document.getElementById("passwordField").value;
+  if (v.length < 6){
+    setError("passwordField", "Password must be at least 6 characters.", false);
+  } else {
+    setError("passwordField", "", true);
+  }
+  checkConfirm();
+}
+
+function checkConfirm(){
+  const p = document.getElementById("passwordField").value;
+  const c = document.getElementById("confirmField").value;
+  if (c !== p || c === ""){
+    setError("confirmField", "Passwords do not match.", false);
+  } else {
+    setError("confirmField", "", true);
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Calculator (Mini Project) | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Digital Calculator (Mini Project)</h1>
+  <p class="subtitle">A button-grid digital calculator mini project supporting +, -, *, / and clear.</p>
+  <div class="program-box">
+<style>
+.calc{ max-width:240px; margin:auto; }
+.calc-screen{ background:#fff4e6; border:2px solid #ffd9a8; border-radius:8px; padding:10px; text-align:right; font-size:1.5rem; margin-bottom:8px; min-height:36px; }
+.calc-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:6px; }
+.calc-grid button{ padding:14px 0; font-size:1.1rem; border:none; border-radius:6px; background:#ffe0b2; cursor:pointer; }
+.calc-grid button.op{ background:#ff9f43; color:#fff; }
+</style>
+<div class="calc">
+  <div class="calc-screen" id="calcScreen">0</div>
+  <div class="calc-grid" id="calcGrid"></div>
+</div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+const screen = document.getElementById('calcScreen');
+const grid = document.getElementById('calcGrid');
+const keys = ['7','8','9','/','4','5','6','*','1','2','3','-','C','0','=','+'];
+let expr = '';
+keys.forEach(k => {
+  const btn = document.createElement('button');
+  btn.textContent = k;
+  if('/*-+'.includes(k)) btn.className = 'op';
+  btn.onclick = () => press(k);
+  grid.appendChild(btn);
+});
+function press(k){
+  if(k === 'C'){ expr = ''; }
+  else if(k === '='){
+    try{ expr = String(eval(expr)); } catch(e){ expr = 'Error'; }
+  } else {
+    expr += k;
+  }
+  screen.textContent = expr || '0';
+}
+</script>
+</body>
+</html>

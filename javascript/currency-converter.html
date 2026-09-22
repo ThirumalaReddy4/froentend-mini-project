@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Currency Converter using an API | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML &middot; CSS &middot; JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Currency Converter using an API</h1>
+  <p class="subtitle">Converts an amount between currencies using the free, keyless open.er-api.com service.</p>
+  <div class="program-box">
+<div class="demo-area">
+  <input type="number" id="amount" placeholder="Amount" value="1">
+  <input type="text" id="from" placeholder="From (e.g. USD)" value="USD">
+  <input type="text" id="to" placeholder="To (e.g. INR)" value="INR">
+  <button class="btn" onclick="convert()">Convert</button>
+  <div class="output-box" id="out"></div>
+</div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+async function convert(){
+  const amount = parseFloat(document.getElementById("amount").value) || 0;
+  const from = document.getElementById("from").value.trim().toUpperCase();
+  const to = document.getElementById("to").value.trim().toUpperCase();
+  const out = document.getElementById("out");
+  out.textContent = "Loading...";
+  try {
+    const res = await fetch("https://open.er-api.com/v6/latest/" + from);
+    const data = await res.json();
+    const rate = data.rates[to];
+    out.textContent = amount + " " + from + " = " + (amount * rate).toFixed(2) + " " + to;
+  } catch (err) {
+    out.textContent = "Could not fetch live rates (offline?). Example: 1 USD is approximately 83 INR.";
+  }
+}
+</script>
+</body>
+</html>

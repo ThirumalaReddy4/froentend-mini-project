@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multiplication Table | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Multiplication Table</h1>
+  <p class="subtitle">Prints the table of a number up to a chosen limit.</p>
+  <div class="program-box">
+<form class="demo-form" onsubmit="run(); return false;">
+  <label>Number<input id="n" type="number" value="7"></label>
+  <label>Up to<input id="limit" type="number" value="10"></label>
+  <button class="btn" type="submit">Show table</button>
+</form>
+<div class="output-box" id="out"></div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+// Reads the inputs, runs the program logic and prints the result.
+function run() {
+  const n = Number(document.getElementById('n').value);
+  const limit = Number(document.getElementById('limit').value);
+  const result = (() => {
+    let lines = [];
+    for (let i = 1; i <= limit; i++) lines.push(n + ' x ' + i + ' = ' + (n * i));
+    return lines.join('\n');
+  })();
+  document.getElementById('out').textContent = result;
+}
+run();
+</script>
+</body>
+</html>

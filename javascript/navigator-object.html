@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Navigator Object | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML &middot; CSS &middot; JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Navigator Object</h1>
+  <p class="subtitle">Demonstrates common navigator object properties.</p>
+  <div class="program-box">
+    <button class="btn" onclick="run()">Show Navigator Info</button>
+    <div class="output-box" id="out"></div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+function run(){
+  document.getElementById('out').textContent =
+`Browser (userAgent): ${navigator.userAgent}
+Platform: ${navigator.platform}
+Language: ${navigator.language}
+Cookies enabled: ${navigator.cookieEnabled}
+Online: ${navigator.onLine}
+CPU cores (approx): ${navigator.hardwareConcurrency}`;
+}
+</script>
+</body>
+</html>

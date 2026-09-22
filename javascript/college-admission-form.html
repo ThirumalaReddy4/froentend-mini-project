@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>College Admission Form with JavaScript Validation | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML &middot; CSS &middot; JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">College Admission Form with JavaScript Validation</h1>
+  <p class="subtitle">Validates name, email, phone and marks fields for a mock admission form.</p>
+  <div class="program-box">
+<div class="demo-area">
+  <form onsubmit="return validateAdmission(event)">
+    <input type="text" id="aName" placeholder="Full name">
+    <input type="email" id="aEmail" placeholder="Email">
+    <input type="tel" id="aPhone" placeholder="Phone number">
+    <input type="number" id="aMarks" placeholder="12th percentage">
+    <button class="btn" type="submit">Apply</button>
+  </form>
+  <div class="output-box" id="out"></div>
+</div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+function validateAdmission(e){
+  e.preventDefault();
+  const name = document.getElementById("aName").value.trim();
+  const email = document.getElementById("aEmail").value.trim();
+  const phone = document.getElementById("aPhone").value.trim();
+  const marks = document.getElementById("aMarks").value.trim();
+  const errors = [];
+  if (name.length < 2) errors.push("Enter a valid name.");
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errors.push("Enter a valid email.");
+  if (!/^\d{10}$/.test(phone)) errors.push("Phone number must be 10 digits.");
+  if (!marks || marks < 0 || marks > 100) errors.push("Enter a valid percentage (0-100).");
+  const out = document.getElementById("out");
+  out.textContent = errors.length ? errors.join("\n") : "Application submitted successfully for " + name + "!";
+  return false;
+}
+</script>
+</body>
+</html>

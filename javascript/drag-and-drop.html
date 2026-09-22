@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Drag-and-Drop Application | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML &middot; CSS &middot; JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Drag-and-Drop Application</h1>
+  <p class="subtitle">A simple drag-and-drop demo using the HTML5 Drag and Drop API.</p>
+  <div class="program-box">
+<div class="demo-area">
+  <div id="dragItem" draggable="true" style="width:100px;padding:10px;background:var(--accent);color:#06070d;border-radius:8px;text-align:center;cursor:grab;">Drag me</div>
+  <div id="dropZone" style="margin-top:14px;height:100px;border:2px dashed var(--border);border-radius:10px;display:flex;align-items:center;justify-content:center;">Drop here</div>
+</div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+const item = document.getElementById("dragItem");
+const zone = document.getElementById("dropZone");
+item.addEventListener("dragstart", e => e.dataTransfer.setData("text/plain", "dragged"));
+zone.addEventListener("dragover", e => e.preventDefault());
+zone.addEventListener("drop", e => {
+  e.preventDefault();
+  zone.textContent = "Dropped!";
+  zone.style.borderColor = "var(--accent-2)";
+});
+</script>
+</body>
+</html>

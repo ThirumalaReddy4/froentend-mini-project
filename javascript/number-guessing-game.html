@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Number Guessing Game | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Number Guessing Game</h1>
+  <p class="subtitle">Guess a random number between 1 and 100.</p>
+  <div class="program-box">
+
+<div class="demo-area">
+  <p>I'm thinking of a number between 1 and 100.</p>
+  <input id="guess" type="number" min="1" max="100">
+  <button class="btn" onclick="guess()">Guess</button>
+  <button class="btn" onclick="reset()">New Game</button>
+  <div class="output-box" id="out">Attempts: 0</div>
+</div>
+
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+
+let target = Math.floor(Math.random()*100)+1;
+let attempts = 0;
+function guess(){
+  const g = Number(document.getElementById('guess').value);
+  attempts++;
+  const out = document.getElementById('out');
+  if(g === target) out.textContent = `Correct! The number was ${target}. Attempts: ${attempts}`;
+  else if(g < target) out.textContent = `Too low. Try again. Attempts: ${attempts}`;
+  else out.textContent = `Too high. Try again. Attempts: ${attempts}`;
+}
+function reset(){ target = Math.floor(Math.random()*100)+1; attempts = 0; document.getElementById('out').textContent = 'Attempts: 0'; }
+
+</script>
+</body>
+</html>

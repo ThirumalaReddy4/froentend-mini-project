@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perfect Number | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Perfect Number</h1>
+  <p class="subtitle">A number equal to the sum of its proper divisors.</p>
+  <div class="program-box">
+<form class="demo-form" onsubmit="run(); return false;">
+  <label>Number<input id="n" type="number" value="28"></label>
+  <button class="btn" type="submit">Check</button>
+</form>
+<div class="output-box" id="out"></div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+// Reads the inputs, runs the program logic and prints the result.
+function run() {
+  const n = Number(document.getElementById('n').value);
+  const result = (() => {
+    let sum = 0, divisors = [];
+    for (let i = 1; i <= n / 2; i++) if (n % i === 0) { sum += i; divisors.push(i); }
+    return 'Proper divisors: ' + divisors.join(', ') + '\nSum = ' + sum + '\n' + n + (sum === n && n > 0 ? ' is' : ' is NOT') + ' a perfect number.';
+  })();
+  document.getElementById('out').textContent = result;
+}
+run();
+</script>
+</body>
+</html>

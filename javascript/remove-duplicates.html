@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Remove Duplicate Elements | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Remove Duplicate Elements</h1>
+  <p class="subtitle">Uses a Set to remove repeated values.</p>
+  <div class="program-box">
+<form class="demo-form" onsubmit="run(); return false;">
+  <label>Items (comma separated)<input id="arr" type="text" value="apple, banana, apple, cherry, banana, mango"></label>
+  <button class="btn" type="submit">Remove</button>
+</form>
+<div class="output-box" id="out"></div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+// Reads the inputs, runs the program logic and prints the result.
+function run() {
+  const arr = document.getElementById('arr').value.split(',').map(x => x.trim()).filter(x => x !== '');
+  const result = (() => {
+    const unique = [...new Set(arr)];
+    return 'Original: ' + arr.join(', ') + '\nUnique:   ' + unique.join(', ') + '\nRemoved ' + (arr.length - unique.length) + ' duplicate(s).';
+  })();
+  document.getElementById('out').textContent = result;
+}
+run();
+</script>
+</body>
+</html>

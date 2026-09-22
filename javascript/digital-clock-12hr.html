@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Clock (Mini Project - 12-Hour Format) | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Digital Clock (Mini Project - 12-Hour Format)</h1>
+  <p class="subtitle">A digital clock mini project showing live time in 12-hour format with AM/PM.</p>
+  <div class="program-box">
+<div class="output-box" id="clk12" style="font-size:2rem; text-align:center;"></div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+function tick(){
+  const d = new Date();
+  let h = d.getHours();
+  const ampm = h >= 12 ? 'PM' : 'AM';
+  h = h % 12 || 12;
+  const m = String(d.getMinutes()).padStart(2,'0');
+  const s = String(d.getSeconds()).padStart(2,'0');
+  document.getElementById('clk12').textContent = h + ':' + m + ':' + s + ' ' + ampm;
+}
+setInterval(tick, 1000);
+tick();
+</script>
+</body>
+</html>

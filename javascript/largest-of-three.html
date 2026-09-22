@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Largest of Three Numbers | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Largest of Three Numbers</h1>
+  <p class="subtitle">Finds the largest of three user-supplied numbers.</p>
+  <div class="program-box">
+
+<form class="demo-form" onsubmit="return false;">
+  <label>A<input id="a" type="number" value="4"></label>
+  <label>B<input id="b" type="number" value="9"></label>
+  <label>C<input id="c" type="number" value="7"></label>
+  <button class="btn" onclick="findLargest()">Find Largest</button>
+</form>
+<div class="output-box" id="out"></div>
+
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+
+function findLargest(){
+  const a=Number(document.getElementById('a').value);
+  const b=Number(document.getElementById('b').value);
+  const c=Number(document.getElementById('c').value);
+  document.getElementById('out').textContent = 'Largest: ' + Math.max(a,b,c);
+}
+
+</script>
+</body>
+</html>

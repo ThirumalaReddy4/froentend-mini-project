@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Countdown Timer (Mini Project - Custom Minutes) | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Countdown Timer (Mini Project - Custom Minutes)</h1>
+  <p class="subtitle">A countdown timer mini project where the user sets the number of minutes to count down from.</p>
+  <div class="program-box">
+<input id="ctMinutes" type="number" min="1" value="1" style="width:80px;"> minutes
+<button class="btn" onclick="startCountdown()">Start</button>
+<div class="output-box" id="ctDisplay" style="font-size:2rem; text-align:center;">00:00</div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+let ctInterval = null;
+function startCountdown(){
+  clearInterval(ctInterval);
+  let seconds = Number(document.getElementById('ctMinutes').value) * 60;
+  updateDisplay(seconds);
+  ctInterval = setInterval(() => {
+    seconds--;
+    if(seconds < 0){
+      clearInterval(ctInterval);
+      document.getElementById('ctDisplay').textContent = "Time's up!";
+      return;
+    }
+    updateDisplay(seconds);
+  }, 1000);
+}
+function updateDisplay(seconds){
+  const m = String(Math.floor(seconds/60)).padStart(2,'0');
+  const s = String(seconds%60).padStart(2,'0');
+  document.getElementById('ctDisplay').textContent = m + ':' + s;
+}
+</script>
+</body>
+</html>

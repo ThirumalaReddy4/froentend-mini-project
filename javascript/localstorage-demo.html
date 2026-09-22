@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Store and Retrieve Data Using localStorage | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Store and Retrieve Data Using localStorage</h1>
+  <p class="subtitle">Store, retrieve, and remove a simple key/value pair using the localStorage API.</p>
+  <div class="program-box">
+<input id="lsKey" placeholder="Key">
+<input id="lsVal" placeholder="Value">
+<button class="btn" onclick="lsSave()">Save</button>
+<button class="btn" onclick="lsLoad()">Load</button>
+<button class="btn" onclick="lsRemove()">Remove</button>
+<div class="output-box" id="lsOut"></div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+function lsSave(){
+  const key = document.getElementById('lsKey').value;
+  const val = document.getElementById('lsVal').value;
+  if(!key) return;
+  localStorage.setItem(key, val);
+  document.getElementById('lsOut').textContent = 'Saved "' + key + '" = "' + val + '" to localStorage.';
+}
+function lsLoad(){
+  const key = document.getElementById('lsKey').value;
+  const val = localStorage.getItem(key);
+  document.getElementById('lsOut').textContent = val !== null ? ('Value: ' + val) : 'No value found for that key.';
+}
+function lsRemove(){
+  const key = document.getElementById('lsKey').value;
+  localStorage.removeItem(key);
+  document.getElementById('lsOut').textContent = 'Removed key "' + key + '" from localStorage.';
+}
+</script>
+</body>
+</html>

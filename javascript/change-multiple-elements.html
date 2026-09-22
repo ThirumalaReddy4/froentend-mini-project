@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Change Multiple Elements Simultaneously | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML &middot; CSS &middot; JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Change Multiple Elements Simultaneously</h1>
+  <p class="subtitle">Updates the text and style of several elements at once from a single click.</p>
+  <div class="program-box">
+<div class="demo-area">
+  <p id="el1">Element One</p>
+  <p id="el2">Element Two</p>
+  <p id="el3">Element Three</p>
+  <button class="btn" onclick="updateAll()">Update All Elements</button>
+</div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+function updateAll(){
+  const ids = ["el1","el2","el3"];
+  ids.forEach((id, i) => {
+    const el = document.getElementById(id);
+    el.textContent = "Updated Element " + (i + 1);
+    el.style.color = "var(--accent-2)";
+    el.style.fontWeight = "bold";
+  });
+}
+</script>
+</body>
+</html>

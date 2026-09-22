@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JavaScript Functions | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">JavaScript Functions</h1>
+  <p class="subtitle">Declaration, expression, default parameters, return values and recursion.</p>
+  <div class="program-box">
+<button class="btn" onclick="run()">Run</button><div class="output-box" id="out"></div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+
+function greet(name = 'Student') { return 'Hello, ' + name + '!'; }           // declaration + default parameter
+const square = function (n) { return n * n; };                                // function expression
+function sum(...nums) { return nums.reduce((a, b) => a + b, 0); }             // variable arguments
+function factorial(n) { return n <= 1 ? 1 : n * factorial(n - 1); }           // recursion
+function counter() { let c = 0; return () => ++c; }                            // closure
+function run() {
+  const next = counter();
+  document.getElementById('out').textContent =
+    greet() + '\n' + greet('Asha') + '\nsquare(9) = ' + square(9) +
+    '\nsum(1,2,3,4) = ' + sum(1, 2, 3, 4) + '\nfactorial(5) = ' + factorial(5) +
+    '\nclosure counter: ' + next() + ', ' + next() + ', ' + next();
+}
+run();
+</script>
+</body>
+</html>

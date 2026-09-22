@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Second-Largest Element | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Second-Largest Element</h1>
+  <p class="subtitle">Finds the second-largest distinct number in an array.</p>
+  <div class="program-box">
+<form class="demo-form" onsubmit="run(); return false;">
+  <label>Numbers (comma separated)<input id="arr" type="text" value="12, 35, 1, 10, 34, 35"></label>
+  <button class="btn" type="submit">Find</button>
+</form>
+<div class="output-box" id="out"></div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+// Reads the inputs, runs the program logic and prints the result.
+function run() {
+  const arr = document.getElementById('arr').value.split(',').map(x => x.trim()).filter(x => x !== '').map(Number);
+  const result = (() => {
+    const unique = [...new Set(arr)].sort((a, b) => b - a);
+    return unique.length < 2 ? 'Need at least two distinct numbers.' : 'Largest = ' + unique[0] + '\nSecond largest = ' + unique[1];
+  })();
+  document.getElementById('out').textContent = result;
+}
+run();
+</script>
+</body>
+</html>

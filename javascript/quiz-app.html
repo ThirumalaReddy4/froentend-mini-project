@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simple Quiz Application | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Simple Quiz Application</h1>
+  <p class="subtitle">A short multiple-choice quiz with automatic scoring.</p>
+  <div class="program-box">
+
+<div class="demo-area" id="quizArea"></div>
+<button class="btn" onclick="submitQuiz()">Submit Quiz</button>
+<div class="output-box" id="out"></div>
+
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+
+const questions = [
+  {q:'Which tag creates a hyperlink?', options:['<link>','<a>','<href>'], answer:1},
+  {q:'Which property changes text colour in CSS?', options:['font-color','text-color','color'], answer:2},
+  {q:'Which keyword declares a constant in JS?', options:['let','const','var'], answer:1}
+];
+function renderQuiz(){
+  const area = document.getElementById('quizArea');
+  area.innerHTML = questions.map((item,i) => `
+    <p><strong>Q${i+1}. ${item.q}</strong></p>
+    ${item.options.map((opt,j)=>`<label><input type="radio" name="q${i}" value="${j}"> ${opt}</label>`).join('')}
+  `).join('<hr style="border-color:var(--border);margin:14px 0;">');
+}
+function submitQuiz(){
+  let score = 0;
+  questions.forEach((item,i)=>{
+    const chosen = document.querySelector(`input[name="q${i}"]:checked`);
+    if(chosen && Number(chosen.value) === item.answer) score++;
+  });
+  document.getElementById('out').textContent = `You scored ${score} out of ${questions.length}.`;
+}
+renderQuiz();
+
+</script>
+</body>
+</html>

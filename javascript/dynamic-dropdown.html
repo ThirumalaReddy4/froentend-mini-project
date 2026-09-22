@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamic Dropdown List | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML &middot; CSS &middot; JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Dynamic Dropdown List</h1>
+  <p class="subtitle">Populates a select dropdown's options entirely from a JavaScript array.</p>
+  <div class="program-box">
+<div class="demo-area">
+  <select id="fruitSelect"></select>
+  <div class="output-box" id="out"></div>
+</div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+const fruits = ["Apple","Banana","Cherry","Mango","Orange"];
+const select = document.getElementById("fruitSelect");
+fruits.forEach(f => {
+  const opt = document.createElement("option");
+  opt.value = f; opt.textContent = f;
+  select.appendChild(opt);
+});
+select.addEventListener("change", () => {
+  document.getElementById("out").textContent = "You picked: " + select.value;
+});
+</script>
+</body>
+</html>

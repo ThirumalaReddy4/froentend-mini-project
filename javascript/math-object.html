@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Math Object | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Math Object</h1>
+  <p class="subtitle">Uses common Math methods and constants.</p>
+  <div class="program-box">
+<form class="demo-form" onsubmit="run(); return false;"><label>Number<input id="n" type="number" value="16.7"></label><button class="btn" type="submit">Calculate</button></form><div class="output-box" id="out"></div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+
+function run() {
+  const n = Number(document.getElementById('n').value);
+  document.getElementById('out').textContent =
+    'Math.PI = ' + Math.PI.toFixed(5) + '\nMath.round(' + n + ') = ' + Math.round(n) + '\nMath.floor = ' + Math.floor(n) + '   Math.ceil = ' + Math.ceil(n) +
+    '\nMath.sqrt = ' + Math.sqrt(n).toFixed(3) + '\nMath.pow(' + n + ', 2) = ' + Math.pow(n, 2).toFixed(2) + '\nMath.abs(-' + n + ') = ' + Math.abs(-n) +
+    '\nMath.max(3, 9, ' + n + ') = ' + Math.max(3, 9, n) + '   Math.min = ' + Math.min(3, 9, n) +
+    '\nRandom 1-100: ' + (Math.floor(Math.random() * 100) + 1);
+}
+run();
+</script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complete Interactive Portfolio Website | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.pf{background:#fff;color:#222;border-radius:12px;overflow:hidden;transition:.3s;font-family:inherit}
+.pf.dark{background:#1b2838;color:#eee}
+.pf-hero{padding:26px 20px;text-align:center;background:linear-gradient(135deg,#6a5acd,#48c6ef);color:#fff}
+.pf-hero h2{margin:6px 0 2px}
+.pf-nav{display:flex;flex-wrap:wrap;background:#eef0ff}
+.pf.dark .pf-nav{background:#25324a}
+.pf-nav button{flex:1;min-width:90px;padding:10px;border:0;background:transparent;cursor:pointer;font:inherit}
+.pf-nav button.active{background:#6a5acd;color:#fff}
+.pf-section{display:none;padding:18px}
+.pf-section.show{display:block}
+.pf-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.pf-card{border:1px solid #ddd;border-radius:8px;padding:12px}
+.pf.dark .pf-card{border-color:#3a4a68}
+.pf-card h4{margin:0 0 6px}
+.pf-skillbar{background:#e3e3f5;border-radius:6px;overflow:hidden;height:10px;margin:4px 0 10px}
+.pf.dark .pf-skillbar{background:#334}
+.pf-skillfill{background:#6a5acd;height:100%}
+.pf-section input,.pf-section textarea{width:100%;padding:8px;margin-bottom:8px;border:1px solid #ccc;border-radius:6px;font:inherit}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Complete Interactive Portfolio Website</h1>
+  <p class="subtitle">A JavaScript-driven personal portfolio: tabbed navigation, filterable project gallery, animated skill bars, theme toggle and a working contact form.</p>
+  <div class="program-box">
+<div class="pf" id="pf">
+  <div class="pf-hero">
+    <h2>Thirumala Reddy</h2>
+    <p>B.Tech Student &mdash; School of Computing &amp; Data Science, Sai University</p>
+    <button class="btn" id="pfTheme">Toggle theme</button>
+  </div>
+  <div class="pf-nav">
+    <button class="active" data-t="about">About</button>
+    <button data-t="projects">Projects</button>
+    <button data-t="skills">Skills</button>
+    <button data-t="contact">Contact</button>
+  </div>
+
+  <section id="about" class="pf-section show">
+    <h3>About Me</h3>
+    <p>I'm Thirumala Reddy Basi Reddy, a B.Tech student passionate about software development, problem solving, full-stack web development, data structures and algorithms, and emerging technologies.</p>
+  </section>
+
+  <section id="projects" class="pf-section">
+    <h3>Projects</h3>
+    <input id="pfSearch" placeholder="Search projects...">
+    <div class="pf-grid" id="pfGrid"></div>
+  </section>
+
+  <section id="skills" class="pf-section">
+    <h3>Skills</h3>
+    <div id="pfSkills"></div>
+  </section>
+
+  <section id="contact" class="pf-section">
+    <h3>Contact Me</h3>
+    <input id="pfName" placeholder="Your name">
+    <input id="pfEmail" placeholder="Your email">
+    <textarea id="pfMsg" rows="3" placeholder="Your message"></textarea>
+    <button class="btn" id="pfSend">Send Message</button>
+    <p id="pfResult"></p>
+  </section>
+</div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+// --- Tab navigation ---
+document.querySelectorAll('.pf-nav button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.pf-nav button').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.pf-section').forEach(s => s.classList.remove('show'));
+    btn.classList.add('active');
+    document.getElementById(btn.dataset.t).classList.add('show');
+  });
+});
+
+// --- Theme toggle ---
+document.getElementById('pfTheme').addEventListener('click', () => {
+  document.getElementById('pf').classList.toggle('dark');
+});
+
+// --- Projects gallery with filter ---
+const projects = [
+  { name: 'Movie Recommendation Helper', tag: 'Python' },
+  { name: 'JARVIS Voice Assistant', tag: 'Python' },
+  { name: 'Attendance Management System', tag: 'HTML/CSS/JS' },
+  { name: 'AquaPulse Launch Workflow', tag: 'AI Tools' }
+];
+const pfGrid = document.getElementById('pfGrid');
+function renderProjects(filter = '') {
+  const f = filter.toLowerCase();
+  const matches = projects.filter(p =>
+    p.name.toLowerCase().includes(f) || p.tag.toLowerCase().includes(f)
+  );
+  pfGrid.innerHTML = matches.length
+    ? matches.map(p => `<div class="pf-card"><h4>${p.name}</h4><small>${p.tag}</small></div>`).join('')
+    : '<p>No projects match your search.</p>';
+}
+document.getElementById('pfSearch').addEventListener('input', e => renderProjects(e.target.value));
+renderProjects();
+
+// --- Animated skill bars ---
+const skills = [
+  { name: 'C / C++ (DSA)', level: 70 },
+  { name: 'Python', level: 65 },
+  { name: 'HTML & CSS', level: 55 },
+  { name: 'JavaScript', level: 50 }
+];
+document.getElementById('pfSkills').innerHTML = skills.map(s => `
+  <p>${s.name} &mdash; ${s.level}%</p>
+  <div class="pf-skillbar"><div class="pf-skillfill" style="width:${s.level}%"></div></div>
+`).join('');
+
+// --- Contact form ---
+document.getElementById('pfSend').addEventListener('click', () => {
+  const name = document.getElementById('pfName').value.trim();
+  const email = document.getElementById('pfEmail').value.trim();
+  const msg = document.getElementById('pfMsg').value.trim();
+  const result = document.getElementById('pfResult');
+  if (!name || !email || !msg) {
+    result.textContent = 'Please fill in all fields before sending.';
+    return;
+  }
+  result.textContent = `Thanks, ${name}! Your message has been received (demo only, no email is actually sent).`;
+  document.getElementById('pfName').value = '';
+  document.getElementById('pfEmail').value = '';
+  document.getElementById('pfMsg').value = '';
+});
+</script>
+</body>
+</html>

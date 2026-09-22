@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add New HTML Elements Dynamically | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML &middot; CSS &middot; JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Add New HTML Elements Dynamically</h1>
+  <p class="subtitle">Uses createElement, createTextNode and appendChild to insert new elements into the page at runtime.</p>
+  <div class="program-box">
+<div class="demo-area">
+  <input type="text" id="newItemText" placeholder="Enter some text">
+  <button class="btn" onclick="addParagraph()">Add Paragraph</button>
+  <button class="btn" onclick="addListItem()">Add List Item</button>
+  <button class="btn" onclick="addButton()">Add Button</button>
+  <hr>
+  <div id="container"></div>
+  <ul id="list"></ul>
+</div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+let btnCount = 0;
+
+function addParagraph(){
+  const text = document.getElementById("newItemText").value || "New paragraph";
+  const p = document.createElement("p");
+  p.appendChild(document.createTextNode(text));
+  document.getElementById("container").appendChild(p);
+}
+
+function addListItem(){
+  const text = document.getElementById("newItemText").value || "New list item";
+  const li = document.createElement("li");
+  li.textContent = text;
+  document.getElementById("list").appendChild(li);
+}
+
+function addButton(){
+  btnCount++;
+  const b = document.createElement("button");
+  b.className = "btn";
+  b.textContent = "Dynamic Button " + btnCount;
+  b.onclick = function(){ alert("You clicked dynamic button " + btnCount); };
+  document.getElementById("container").appendChild(b);
+}
+</script>
+</body>
+</html>

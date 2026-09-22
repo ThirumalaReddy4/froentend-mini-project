@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Factorial of a Number | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Factorial of a Number</h1>
+  <p class="subtitle">Calculates n! using a loop.</p>
+  <div class="program-box">
+<form class="demo-form" onsubmit="return false;"><label>Number<input id="n" type="number" value="5"></label><button class="btn" onclick="fact()">Calculate</button></form><div class="output-box" id="out"></div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+
+function fact(){
+  let n=Number(document.getElementById('n').value), result=1;
+  for(let i=2;i<=n;i++) result*=i;
+  document.getElementById('out').textContent = `${n}! = ${result}`;
+}
+
+</script>
+</body>
+</html>

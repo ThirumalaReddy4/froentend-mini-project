@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complete Interactive Webpage (HTML + CSS + JS) | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.ia{background:#fff;color:#4a1010;border-radius:12px;overflow:hidden;transition:.3s}.ia.dark{background:#1b2838;color:#eee}
+.bar{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:#c0392b;color:#fff}.tabs{display:flex}
+.tab{flex:1;padding:10px;border:0;background:#ffe3e3;cursor:pointer;font:inherit}.tab.active{background:#ff6b6b;color:#fff}
+.pane{display:none;padding:16px}.pane.show{display:block}.pane input,.pane textarea{width:100%;padding:8px;margin-bottom:8px;border:1px solid #ffb3b3;border-radius:6px;font:inherit}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Complete Interactive Webpage (HTML + CSS + JS)</h1>
+  <p class="subtitle">A mini web page with a theme toggle, tabs, a live search filter, a like counter and a message form.</p>
+  <div class="program-box">
+<div class="ia" id="page">
+  <div class="bar"><b>My Interactive Page</b><button class="btn" id="theme">Toggle theme</button></div>
+  <div class="tabs"><button class="tab active" data-t="t1">Courses</button><button class="tab" data-t="t2">Like</button><button class="tab" data-t="t3">Message</button></div>
+  <section id="t1" class="pane show"><input id="q" placeholder="Search courses..."><ul id="courses"></ul></section>
+  <section id="t2" class="pane"><p>Do you like this page?</p><button class="btn" id="like">&#128077; Like</button> <b id="lc">0</b> likes</section>
+  <section id="t3" class="pane"><input id="nm" placeholder="Your name"><textarea id="ms" placeholder="Write a message..." rows="3"></textarea><button class="btn" id="send">Send</button><p id="res"></p></section>
+</div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+
+const courses = ['HTML Basics', 'CSS Layouts', 'JavaScript Fundamentals', 'DOM Manipulation', 'Responsive Design', 'Web Storage'];
+const ul = document.getElementById('courses');
+function showCourses(filter = '') {
+  ul.innerHTML = '';
+  courses.filter(c => c.toLowerCase().includes(filter.toLowerCase())).forEach(c => ul.innerHTML += '<li>' + c + '</li>');
+  if (!ul.children.length) ul.innerHTML = '<li>No results</li>';
+}
+document.getElementById('q').addEventListener('input', e => showCourses(e.target.value));
+showCourses();
+
+document.querySelectorAll('.tab').forEach(tab => tab.addEventListener('click', () => {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.pane').forEach(p => p.classList.remove('show'));
+  tab.classList.add('active');
+  document.getElementById(tab.dataset.t).classList.add('show');
+}));
+
+let likes = Number(localStorage.getItem('likes') || 0);
+const lc = document.getElementById('lc'); lc.textContent = likes;
+document.getElementById('like').addEventListener('click', () => { likes++; lc.textContent = likes; localStorage.setItem('likes', likes); });
+
+document.getElementById('theme').addEventListener('click', () => document.getElementById('page').classList.toggle('dark'));
+document.getElementById('send').addEventListener('click', () => {
+  const n = document.getElementById('nm').value.trim(), m = document.getElementById('ms').value.trim();
+  document.getElementById('res').textContent = n && m ? 'Thanks ' + n + ', your message was received!' : 'Please fill in both fields.';
+});
+</script>
+</body>
+</html>

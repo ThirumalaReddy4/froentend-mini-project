@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Classes and Objects | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Classes and Objects</h1>
+  <p class="subtitle">Defines an ES6 class with a constructor, properties and methods, then creates objects from it.</p>
+  <div class="program-box">
+<button class="btn" onclick="run()">Run Demo</button><div class="output-box" id="out"></div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+
+class Student {
+  constructor(name, course) { this.name = name; this.course = course; }
+  introduce() { return `${this.name} studies ${this.course}.`; }
+}
+function run() {
+  const s1 = new Student('Asha', 'BCA');
+  const s2 = new Student('Ravi', 'B.Sc CS');
+  document.getElementById('out').textContent =
+    s1.introduce() + '\n' + s2.introduce() + '\ns1 instanceof Student: ' + (s1 instanceof Student);
+}
+</script>
+</body>
+</html>

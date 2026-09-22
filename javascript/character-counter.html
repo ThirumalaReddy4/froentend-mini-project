@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Live Character Counter for Textarea | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML &middot; CSS &middot; JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Live Character Counter for Textarea</h1>
+  <p class="subtitle">Shows a live count of characters as the user types in a textarea.</p>
+  <div class="program-box">
+<div class="demo-area">
+  <textarea id="txt" rows="4" style="width:100%;padding:10px;border-radius:8px;background:#0b0d18;color:var(--text);border:1px solid var(--border);" oninput="updateCount()" placeholder="Start typing..."></textarea>
+  <p>Characters: <span id="count">0</span></p>
+</div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+function updateCount(){
+  document.getElementById("count").textContent = document.getElementById("txt").value.length;
+}
+</script>
+</body>
+</html>

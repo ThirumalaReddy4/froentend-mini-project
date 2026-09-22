@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arrays and Array Methods | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Arrays and Array Methods</h1>
+  <p class="subtitle">Add, remove, search and transform items in an array.</p>
+  <div class="program-box">
+<div class="output-box" id="out"></div><button class="btn" onclick="run()">Run again</button>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+
+function run() {
+  const log = [];
+  const fruits = ['apple', 'banana'];
+  fruits.push('cherry');           log.push('push -> ' + fruits);
+  fruits.unshift('mango');         log.push('unshift -> ' + fruits);
+  fruits.pop();                    log.push('pop -> ' + fruits);
+  fruits.shift();                  log.push('shift -> ' + fruits);
+  fruits.splice(1, 0, 'kiwi');     log.push('splice(1,0,"kiwi") -> ' + fruits);
+  log.push('slice(0,2) -> ' + fruits.slice(0, 2));
+  log.push('indexOf("kiwi") -> ' + fruits.indexOf('kiwi'));
+  log.push('includes("apple") -> ' + fruits.includes('apple'));
+  log.push('join(" | ") -> ' + fruits.join(' | '));
+  log.push('reverse -> ' + [...fruits].reverse());
+  log.push('map(upper) -> ' + fruits.map(f => f.toUpperCase()));
+  log.push('find(len>4) -> ' + fruits.find(f => f.length > 4));
+  document.getElementById('out').textContent = log.join('\n');
+}
+run();
+</script>
+</body>
+</html>

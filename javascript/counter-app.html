@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Counter App | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Counter App</h1>
+  <p class="subtitle">Increment/decrement counter demonstrating click events and DOM updates.</p>
+  <div class="program-box">
+
+<div class="demo-area" style="text-align:center;">
+  <h2 id="count">0</h2>
+  <button class="btn" onclick="change(-1)">-</button>
+  <button class="btn" onclick="change(1)">+</button>
+  <button class="btn" onclick="change(0)">Reset</button>
+</div>
+
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+
+let count = 0;
+function change(delta){
+  count = delta === 0 ? 0 : count + delta;
+  document.getElementById('count').textContent = count;
+}
+
+</script>
+</body>
+</html>

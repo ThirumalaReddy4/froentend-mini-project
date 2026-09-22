@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Palindrome Number Check | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Palindrome Number Check</h1>
+  <p class="subtitle">Checks whether a number reads the same backwards.</p>
+  <div class="program-box">
+<form class="demo-form" onsubmit="return false;"><label>Number<input id="n" type="number" value="12321"></label><button class="btn" onclick="check()">Check</button></form><div class="output-box" id="out"></div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+
+function check(){
+  const raw = document.getElementById('n').value;
+  const reversed = raw.split('').reverse().join('');
+  document.getElementById('out').textContent = raw === reversed ? `${raw} IS a palindrome.` : `${raw} is NOT a palindrome.`;
+}
+
+</script>
+</body>
+</html>

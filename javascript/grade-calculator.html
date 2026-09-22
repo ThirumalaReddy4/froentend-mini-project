@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Marks / Grade Calculator | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML &middot; CSS &middot; JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Student Marks / Grade Calculator</h1>
+  <p class="subtitle">Calculates total, average and letter grade from five subject marks.</p>
+  <div class="program-box">
+<div class="demo-area">
+  <input type="number" id="m1" placeholder="Subject 1">
+  <input type="number" id="m2" placeholder="Subject 2">
+  <input type="number" id="m3" placeholder="Subject 3">
+  <input type="number" id="m4" placeholder="Subject 4">
+  <input type="number" id="m5" placeholder="Subject 5">
+  <button class="btn" onclick="calcGrade()">Calculate</button>
+  <div class="output-box" id="out"></div>
+</div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+function calcGrade(){
+  const marks = ["m1","m2","m3","m4","m5"].map(id => parseFloat(document.getElementById(id).value) || 0);
+  const total = marks.reduce((a,b) => a+b, 0);
+  const avg = total / marks.length;
+  let grade = "F";
+  if (avg >= 90) grade = "A+";
+  else if (avg >= 75) grade = "A";
+  else if (avg >= 60) grade = "B";
+  else if (avg >= 40) grade = "C";
+  document.getElementById("out").textContent = "Total: " + total + "\nAverage: " + avg.toFixed(2) + "\nGrade: " + grade;
+}
+</script>
+</body>
+</html>

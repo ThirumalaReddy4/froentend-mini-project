@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form Validation | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.fv{max-width:400px}.err{display:block;color:#c0392b;min-height:1em}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Form Validation</h1>
+  <p class="subtitle">Validates required fields, age range, matching passwords and a checkbox, with a message under each field.</p>
+  <div class="program-box">
+<form class="demo-form fv" id="fv" novalidate>
+  <label>Full name *<input id="n"></label><small class="err" id="en"></small>
+  <label>Age (18-60) *<input id="age" type="number"></label><small class="err" id="ea"></small>
+  <label>Password *<input id="p1" type="password"></label><small class="err" id="e1"></small>
+  <label>Confirm password *<input id="p2" type="password"></label><small class="err" id="e2"></small>
+  <label style="display:flex;gap:6px;align-items:center"><input id="tc" type="checkbox" style="width:auto"> I accept the terms *</label><small class="err" id="et"></small>
+  <button class="btn" type="submit">Register</button>
+</form><div class="output-box" id="out"></div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+
+document.getElementById('fv').addEventListener('submit', e => {
+  e.preventDefault();
+  const v = id => document.getElementById(id).value.trim();
+  const set = (id, msg) => { document.getElementById(id).textContent = msg; return msg === ''; };
+  const age = Number(v('age'));
+  const ok = [
+    set('en', v('n') ? '' : 'Name is required.'),
+    set('ea', age >= 18 && age <= 60 ? '' : 'Age must be between 18 and 60.'),
+    set('e1', v('p1').length >= 6 ? '' : 'Password needs at least 6 characters.'),
+    set('e2', v('p2') === v('p1') && v('p2') ? '' : 'Passwords do not match.'),
+    set('et', document.getElementById('tc').checked ? '' : 'You must accept the terms.')
+  ].every(Boolean);
+  document.getElementById('out').textContent = ok ? 'Form is valid. Registration successful (demo).' : 'Please correct the highlighted errors.';
+});
+</script>
+</body>
+</html>

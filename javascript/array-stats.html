@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Largest and Smallest Element in an Array | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Largest and Smallest Element in an Array</h1>
+  <p class="subtitle">Finds the largest and smallest numbers in a comma-separated list.</p>
+  <div class="program-box">
+<form class="demo-form" onsubmit="return false;"><label>Numbers (comma separated)<input id="arr" value="4,9,1,7,15,3"></label><button class="btn" onclick="stats()">Analyse</button></form><div class="output-box" id="out"></div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+
+function stats() {
+  const nums = document.getElementById('arr').value.split(',').map(Number);
+  document.getElementById('out').textContent =
+    `Array: [${nums.join(', ')}]\nLargest: ${Math.max(...nums)}\nSmallest: ${Math.min(...nums)}`;
+}
+stats();
+</script>
+</body>
+</html>

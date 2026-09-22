@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fetch API Demo | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Fetch API Demo</h1>
+  <p class="subtitle">Fetches live data from a public API and displays it.</p>
+  <div class="program-box">
+<button class="btn" onclick="load()">Fetch a Random Joke</button><div class="output-box" id="out">Click the button to fetch data…</div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+
+async function load(){
+  const out = document.getElementById('out');
+  out.textContent = 'Loading...';
+  try{
+    const res = await fetch('https://official-joke-api.appspot.com/random_joke');
+    const data = await res.json();
+    out.textContent = `${data.setup}\n\n${data.punchline}`;
+  }catch(e){
+    out.textContent = 'Could not fetch data (no network in this sandbox). This code works in a normal browser with internet access.';
+  }
+}
+
+</script>
+</body>
+</html>

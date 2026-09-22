@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Event Delegation | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML &middot; CSS &middot; JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Event Delegation</h1>
+  <p class="subtitle">Uses a single listener on a parent list to handle clicks on any of its children, including ones added later.</p>
+  <div class="program-box">
+<div class="demo-area">
+  <ul id="itemList">
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+  </ul>
+  <button class="btn" onclick="addItem()">Add New Item</button>
+  <div class="output-box" id="out"></div>
+</div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+const list = document.getElementById("itemList");
+let count = 3;
+list.addEventListener("click", function(e){
+  if (e.target.tagName === "LI"){
+    document.getElementById("out").textContent = "You clicked: " + e.target.textContent;
+  }
+});
+function addItem(){
+  count++;
+  const li = document.createElement("li");
+  li.textContent = "Item " + count;
+  list.appendChild(li);
+}
+</script>
+</body>
+</html>

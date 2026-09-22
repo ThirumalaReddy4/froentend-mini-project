@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shopping Cart using localStorage | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML &middot; CSS &middot; JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Shopping Cart using localStorage</h1>
+  <p class="subtitle">Adds items to a cart that persists in localStorage, with a running total.</p>
+  <div class="program-box">
+<div class="demo-area">
+  <button class="btn" onclick="addToCart('Pen', 20)">Add Pen (Rs 20)</button>
+  <button class="btn" onclick="addToCart('Notebook', 60)">Add Notebook (Rs 60)</button>
+  <button class="btn" onclick="clearCart()">Clear Cart</button>
+  <div class="output-box" id="out"></div>
+</div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+function getCart(){ return JSON.parse(localStorage.getItem("cart") || "[]"); }
+function saveCart(cart){ localStorage.setItem("cart", JSON.stringify(cart)); render(); }
+function addToCart(name, price){
+  const cart = getCart();
+  cart.push({ name, price });
+  saveCart(cart);
+}
+function clearCart(){ localStorage.removeItem("cart"); render(); }
+function render(){
+  const cart = getCart();
+  let total = 0;
+  let msg = cart.map(i => { total += i.price; return i.name + " - Rs " + i.price; }).join("\n");
+  document.getElementById("out").textContent = (msg || "Cart is empty.") + "\n\nTotal: Rs " + total;
+}
+render();
+</script>
+</body>
+</html>

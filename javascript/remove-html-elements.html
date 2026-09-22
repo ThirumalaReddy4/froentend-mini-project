@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Remove HTML Elements Dynamically | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML &middot; CSS &middot; JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Remove HTML Elements Dynamically</h1>
+  <p class="subtitle">Uses removeChild / element.remove() to delete elements from the page on demand.</p>
+  <div class="program-box">
+<div class="demo-area">
+  <ul id="list">
+    <li>Item One <button class="btn" onclick="removeItem(this)">Remove</button></li>
+    <li>Item Two <button class="btn" onclick="removeItem(this)">Remove</button></li>
+    <li>Item Three <button class="btn" onclick="removeItem(this)">Remove</button></li>
+  </ul>
+  <button class="btn" onclick="addItem()">Add Item</button>
+  <button class="btn" onclick="removeLast()">Remove Last Item</button>
+  <button class="btn" onclick="clearAll()">Clear All</button>
+</div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+let count = 3;
+
+function removeItem(btn){
+  const li = btn.parentElement;
+  li.remove();
+}
+
+function addItem(){
+  count++;
+  const li = document.createElement("li");
+  li.textContent = "Item " + count + " ";
+  const btn = document.createElement("button");
+  btn.className = "btn";
+  btn.textContent = "Remove";
+  btn.onclick = function(){ removeItem(btn); };
+  li.appendChild(btn);
+  document.getElementById("list").appendChild(li);
+}
+
+function removeLast(){
+  const list = document.getElementById("list");
+  if (list.lastElementChild) {
+    list.removeChild(list.lastElementChild);
+  }
+}
+
+function clearAll(){
+  document.getElementById("list").innerHTML = "";
+}
+</script>
+</body>
+</html>

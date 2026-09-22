@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>sessionStorage | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML &middot; CSS &middot; JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">sessionStorage</h1>
+  <p class="subtitle">Saves a value in sessionStorage, which lasts only for the current browser tab session.</p>
+  <div class="program-box">
+<div class="demo-area">
+  <input type="text" id="sVal" placeholder="Enter a value">
+  <button class="btn" onclick="saveSession()">Save to sessionStorage</button>
+  <button class="btn" onclick="loadSession()">Load from sessionStorage</button>
+  <div class="output-box" id="out"></div>
+</div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+function saveSession(){
+  sessionStorage.setItem("demoValue", document.getElementById("sVal").value);
+  document.getElementById("out").textContent = "Saved to sessionStorage.";
+}
+function loadSession(){
+  const val = sessionStorage.getItem("demoValue");
+  document.getElementById("out").textContent = val ? "Loaded: " + val : "Nothing saved yet.";
+}
+</script>
+</body>
+</html>

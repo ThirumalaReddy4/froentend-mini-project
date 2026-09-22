@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inheritance in JavaScript | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Inheritance in JavaScript</h1>
+  <p class="subtitle">Subclasses with extends, super() and method overriding across two levels.</p>
+  <div class="program-box">
+<button class="btn" onclick="run()">Run Demo</button><div class="output-box" id="out"></div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+
+class Person {
+  constructor(name) { this.name = name; }
+  describe() { return `${this.name} is a person.`; }
+}
+class Student extends Person {                     // level 1 subclass
+  constructor(name, course) { super(name); this.course = course; }
+  describe() { return super.describe() + ` Studies ${this.course}.`; }   // overriding + super
+}
+class Intern extends Student {                     // level 2 subclass
+  constructor(name, course, company) { super(name, course); this.company = company; }
+  describe() { return super.describe() + ` Interns at ${this.company}.`; }
+}
+function run() {
+  const p = new Person('Asha'), s = new Student('Ravi', 'BCA'), i = new Intern('Meena', 'B.Sc CS', 'TechCorp');
+  document.getElementById('out').textContent =
+    p.describe() + '\n' + s.describe() + '\n' + i.describe() +
+    '\n\ni instanceof Intern: ' + (i instanceof Intern) + '\ni instanceof Student: ' + (i instanceof Student) + '\ni instanceof Person: ' + (i instanceof Person);
+}
+</script>
+</body>
+</html>

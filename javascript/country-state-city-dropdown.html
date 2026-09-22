@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dependent Dropdown: Country &rarr; State &rarr; City | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML &middot; CSS &middot; JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Dependent Dropdown: Country &rarr; State &rarr; City</h1>
+  <p class="subtitle">Selecting a country fills the state dropdown, and selecting a state fills the city dropdown.</p>
+  <div class="program-box">
+<div class="demo-area">
+  <select id="country"></select>
+  <select id="state"></select>
+  <select id="city"></select>
+</div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+const data = {
+  India: {
+    "Tamil Nadu": ["Chennai","Coimbatore","Madurai"],
+    "Andhra Pradesh": ["Vijayawada","Kadapa","Visakhapatnam"],
+  },
+  USA: {
+    California: ["Los Angeles","San Francisco"],
+    Texas: ["Houston","Austin"],
+  },
+};
+const countrySel = document.getElementById("country");
+const stateSel = document.getElementById("state");
+const citySel = document.getElementById("city");
+
+Object.keys(data).forEach(c => {
+  const opt = document.createElement("option");
+  opt.value = c; opt.textContent = c;
+  countrySel.appendChild(opt);
+});
+
+function fillStates(){
+  stateSel.innerHTML = "";
+  citySel.innerHTML = "";
+  Object.keys(data[countrySel.value]).forEach(s => {
+    const opt = document.createElement("option");
+    opt.value = s; opt.textContent = s;
+    stateSel.appendChild(opt);
+  });
+  fillCities();
+}
+function fillCities(){
+  citySel.innerHTML = "";
+  data[countrySel.value][stateSel.value].forEach(c => {
+    const opt = document.createElement("option");
+    opt.value = c; opt.textContent = c;
+    citySel.appendChild(opt);
+  });
+}
+countrySel.addEventListener("change", fillStates);
+stateSel.addEventListener("change", fillCities);
+fillStates();
+</script>
+</body>
+</html>

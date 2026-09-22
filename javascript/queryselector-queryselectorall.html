@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>querySelector() &amp; querySelectorAll() | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML &middot; CSS &middot; JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">querySelector() &amp; querySelectorAll()</h1>
+  <p class="subtitle">Demonstrates modern CSS-selector based element selection.</p>
+  <div class="program-box">
+<div class="demo-area">
+  <ul id="list">
+    <li class="item">Apple</li>
+    <li class="item">Banana</li>
+    <li class="item">Cherry</li>
+  </ul>
+  <button class="btn" onclick="runDemo()">Run Demo</button>
+  <div class="output-box" id="out"></div>
+</div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+function runDemo(){
+  const first = document.querySelector("#list .item");
+  first.style.color = "var(--accent-2)";
+  const all = document.querySelectorAll("#list .item");
+  let msg = "querySelector (first match): " + first.textContent + "\n";
+  msg += "querySelectorAll found " + all.length + " items:\n";
+  all.forEach(el => { el.style.fontWeight = "bold"; msg += "- " + el.textContent + "\n"; });
+  document.getElementById("out").textContent = msg;
+}
+</script>
+</body>
+</html>

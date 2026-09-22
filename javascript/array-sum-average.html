@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sum and Average of Array Elements | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Sum and Average of Array Elements</h1>
+  <p class="subtitle">Calculates the sum and average using reduce().</p>
+  <div class="program-box">
+<form class="demo-form" onsubmit="run(); return false;"><label>Numbers (comma separated)<input id="arr" value="4, 9, 1, 7, 15, 3"></label><button class="btn" type="submit">Calculate</button></form><div class="output-box" id="out"></div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+
+function run() {
+  const nums = document.getElementById('arr').value.split(',').map(x => Number(x.trim())).filter(x => !isNaN(x));
+  const sum = nums.reduce((total, n) => total + n, 0);
+  document.getElementById('out').textContent =
+    `Array: [${nums.join(', ')}]\nCount: ${nums.length}\nSum: ${sum}\nAverage: ${(sum / nums.length).toFixed(2)}`;
+}
+run();
+</script>
+</body>
+</html>

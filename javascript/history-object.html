@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>History Object | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML &middot; CSS &middot; JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">History Object</h1>
+  <p class="subtitle">Demonstrates window.history: length, back(), forward(), go() and pushState().</p>
+  <div class="program-box">
+<div class="demo-area">
+  <p>History entries in this tab: <span id="historyLength"></span></p>
+  <button class="btn" onclick="goBack()">history.back()</button>
+  <button class="btn" onclick="goForward()">history.forward()</button>
+  <button class="btn" onclick="goBackTwo()">history.go(-2)</button>
+  <button class="btn" onclick="pushFakeState()">pushState (add entry without reload)</button>
+  <p id="output" style="margin-top:15px;"></p>
+</div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+document.getElementById("historyLength").textContent = history.length;
+
+function goBack(){
+  history.back();
+}
+
+function goForward(){
+  history.forward();
+}
+
+function goBackTwo(){
+  history.go(-2);
+}
+
+let stateCount = 0;
+function pushFakeState(){
+  stateCount++;
+  const newUrl = location.pathname + "?state=" + stateCount;
+  history.pushState({ state: stateCount }, "", newUrl);
+  document.getElementById("output").textContent =
+    "Pushed a new history entry. URL is now: " + newUrl +
+    " (use the browser Back button to return without reloading the page).";
+  document.getElementById("historyLength").textContent = history.length;
+}
+
+window.addEventListener("popstate", function(e){
+  document.getElementById("output").textContent =
+    "popstate fired. State object: " + JSON.stringify(e.state);
+});
+</script>
+</body>
+</html>

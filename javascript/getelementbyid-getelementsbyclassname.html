@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>getElementById() &amp; getElementsByClassName() | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML &middot; CSS &middot; JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">getElementById() &amp; getElementsByClassName()</h1>
+  <p class="subtitle">Demonstrates selecting a single element by id and a group of elements by class name.</p>
+  <div class="program-box">
+<div class="demo-area">
+  <p id="single">I have a unique id.</p>
+  <p class="grouped">Item A</p>
+  <p class="grouped">Item B</p>
+  <p class="grouped">Item C</p>
+  <button class="btn" onclick="runDemo()">Run Demo</button>
+  <div class="output-box" id="out"></div>
+</div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+function runDemo(){
+  const byId = document.getElementById("single");
+  byId.style.color = "var(--accent-2)";
+  const byClass = document.getElementsByClassName("grouped");
+  let msg = "getElementById found: " + byId.textContent + "\n";
+  msg += "getElementsByClassName found " + byClass.length + " elements:\n";
+  for (let i = 0; i < byClass.length; i++){
+    byClass[i].style.fontStyle = "italic";
+    msg += "- " + byClass[i].textContent + "\n";
+  }
+  document.getElementById("out").textContent = msg;
+}
+</script>
+</body>
+</html>

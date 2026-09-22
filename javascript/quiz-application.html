@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz Application (Mini Project) | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML · CSS · JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Quiz Application (Mini Project)</h1>
+  <p class="subtitle">A multi-question quiz mini project that scores the user at the end.</p>
+  <div class="program-box">
+<div id="quizBox" class="demo-area"></div>
+<button class="btn" onclick="nextQuestion()">Next</button>
+<div class="output-box" id="quizOut"></div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+const questions = [
+  { q: 'Capital of India?', options: ['Mumbai','New Delhi','Chennai'], answer: 'New Delhi' },
+  { q: '2 + 2 * 2 = ?', options: ['6','8','4'], answer: '6' },
+  { q: 'HTML stands for?', options: ['HyperText Markup Language','HighText Machine Language','None'], answer: 'HyperText Markup Language' }
+];
+let qi = 0, score = 0, answered = false;
+
+function renderQuestion(){
+  const box = document.getElementById('quizBox');
+  if(qi >= questions.length){
+    box.innerHTML = '';
+    document.getElementById('quizOut').textContent = 'Quiz finished! Score: ' + score + '/' + questions.length;
+    return;
+  }
+  const q = questions[qi];
+  box.innerHTML = '<p>' + (qi+1) + '. ' + q.q + '</p>';
+  q.options.forEach(opt => {
+    const btn = document.createElement('button');
+    btn.className = 'btn';
+    btn.textContent = opt;
+    btn.onclick = () => selectAnswer(opt);
+    box.appendChild(btn);
+  });
+  answered = false;
+}
+function selectAnswer(opt){
+  if(answered) return;
+  answered = true;
+  const q = questions[qi];
+  document.getElementById('quizOut').textContent = opt === q.answer ? 'Correct!' : ('Wrong. Answer: ' + q.answer);
+  if(opt === q.answer) score++;
+}
+function nextQuestion(){
+  if(!answered && qi < questions.length){ return; }
+  qi++;
+  renderQuestion();
+}
+renderQuestion();
+</script>
+</body>
+</html>

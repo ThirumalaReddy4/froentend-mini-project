@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BMI Calculator | Practical Programs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html">HTML &middot; CSS &middot; JS Programs</a>
+  <nav class="crumbs">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Back to JavaScript Programs</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">BMI Calculator</h1>
+  <p class="subtitle">Calculates Body Mass Index from height (cm) and weight (kg) and shows the category.</p>
+  <div class="program-box">
+<div class="demo-area">
+  <input type="number" id="height" placeholder="Height (cm)">
+  <input type="number" id="weight" placeholder="Weight (kg)">
+  <button class="btn" onclick="calcBMI()">Calculate BMI</button>
+  <div class="output-box" id="out"></div>
+</div>
+  </div>
+  <footer class="page-nav">
+    <a href="../index.html">Home</a>
+    <a class="secondary" href="index.html">Back to JavaScript Programs</a>
+  </footer>
+</main>
+<script>
+function calcBMI(){
+  const h = parseFloat(document.getElementById("height").value) / 100;
+  const w = parseFloat(document.getElementById("weight").value);
+  if (!h || !w){ document.getElementById("out").textContent = "Enter valid height and weight."; return; }
+  const bmi = w / (h * h);
+  let category = "Normal";
+  if (bmi < 18.5) category = "Underweight";
+  else if (bmi >= 25 && bmi < 30) category = "Overweight";
+  else if (bmi >= 30) category = "Obese";
+  document.getElementById("out").textContent = "BMI: " + bmi.toFixed(2) + "\nCategory: " + category;
+}
+</script>
+</body>
+</html>
